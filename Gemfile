@@ -6,11 +6,13 @@ ruby '3.0.0'
 gem 'activeadmin', '~> 2.13.1'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.8.1'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 gem 'jbuilder', '~> 2.7'
 gem 'mysql2', '~> 0.5'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.7'
 gem 'sass-rails', '~> 6.0'
+gem 'seed-fu', '~> 2.3'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 
