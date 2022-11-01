@@ -1,0 +1,2 @@
+class RoomTenante < ApplicationRecord
+end

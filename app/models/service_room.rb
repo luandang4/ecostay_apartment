@@ -1,0 +1,2 @@
+class ServiceRoom < ApplicationRecord
+end

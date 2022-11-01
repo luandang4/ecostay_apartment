@@ -1,0 +1,2 @@
+class ServiceAggregation < ApplicationRecord
+end
