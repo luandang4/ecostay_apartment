@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 2022_11_01_075557) do
 
   create_table "services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "service_type"
     t.float "price"
     t.string "unit"
     t.datetime "deleted_at"
