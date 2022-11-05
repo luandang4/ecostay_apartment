@@ -7,7 +7,7 @@ class CreateApartments < ActiveRecord::Migration[6.1]
       t.string     :district
       t.string     :prefecture
       t.datetime   :deleted_at
-      t.references :user
+      t.references :admin_user
       t.timestamps
     end
   end
