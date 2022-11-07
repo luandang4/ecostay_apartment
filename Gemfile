@@ -5,7 +5,9 @@ ruby '3.0.0'
 
 gem 'activeadmin', '~> 2.13.1'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'cancancan', '~> 1.15'
 gem 'devise', '~> 4.8.1'
+gem 'enumerize', '~> 2.3'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 gem 'jbuilder', '~> 2.7'
 gem 'mysql2', '~> 0.5'

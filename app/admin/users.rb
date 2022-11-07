@@ -1,4 +1,6 @@
 ActiveAdmin.register User do
+  permit_params :email, :first_name, :last_name, :phone_number, :country_code, :sex, :birthdate, :address, :district, :prefecture
+
   index do
     selectable_column
     id_column
@@ -15,6 +17,23 @@ ActiveAdmin.register User do
     column :created_at
     column :updated_at
     actions
+  end
+
+  show title: proc { |user| "#{user.first_name} #{user.last_name}" } do
+    attributes_table do
+    row :email
+    row :first_name
+    row :last_name
+    row :phone_number
+    row :country_code
+    row :sex
+    row :birthdate
+    row :address
+    row :district
+    row :prefecture
+    row :created_at
+    row :updated_at
+    end
   end
 
   filter :email
@@ -38,5 +57,10 @@ ActiveAdmin.register User do
       f.input :prefecture
     end
     f.actions
+  end
+
+  def show_title
+    show_title = Proc.new { |user| "#{user.first_name} #{user.last_name}" }
+    show_title.call
   end
 end

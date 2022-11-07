@@ -1,4 +1,6 @@
 ActiveAdmin.register Service do
+  permit_params :name, :service_type, :price, :unit, :apartment_id
+
   index do
     selectable_column
     id_column
@@ -6,7 +8,7 @@ ActiveAdmin.register Service do
     column :service_type
     column :price
     column :unit
-    column :apartment_id
+    column :apartment_id if current_admin_user.role.admin?
     actions
   end
 
@@ -20,7 +22,7 @@ ActiveAdmin.register Service do
       f.input :service_type
       f.input :price
       f.input :unit
-      f.input :apartment_id
+      f.input :apartment_id if current_admin_user.role.admin?
     end
     f.actions
   end
