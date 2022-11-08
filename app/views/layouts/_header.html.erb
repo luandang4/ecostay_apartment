@@ -1,44 +1,72 @@
-<nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
-  <div class="container">
-    <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-      EcoStay
-    </a>
-    <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon mt-2">
-        <span class="navbar-toggler-bar bar1"></span>
-        <span class="navbar-toggler-bar bar2"></span>
-        <span class="navbar-toggler-bar bar3"></span>
-      </span>
-    </button>
-    <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
-      <ul class="navbar-nav navbar-nav-hover ms-auto">
-        <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages2" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
-            Pages
-            <%= image_tag("down-arrow-white", alt: "down-arrow", class: "arrow ms-auto ms-md-2 d-lg-block d-none") %>
-            <%= image_tag("down-arrow-dark", alt: "down-arrow", class: "arrow ms-auto ms-md-2 d-lg-none d-block") %>
-          </a>
-        </li>
-        <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="material-icons opacity-6 me-2 text-md">view_day</i>
-            Sections
-            <%= image_tag("down-arrow-white", alt: "down-arrow", class: "arrow ms-auto ms-md-2 d-lg-block d-none") %>
-            <%= image_tag("down-arrow-dark", alt: "down-arrow", class: "arrow ms-auto ms-md-2 d-lg-none d-block") %>
-          </a>
-        </li>
-        <li class="nav-item dropdown dropdown-hover mx-2">
-          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="material-icons opacity-6 me-2 text-md">article</i>
-            Docs
-            <%= image_tag("down-arrow-white", alt: "down-arrow", class: "arrow ms-auto ms-md-2 d-lg-block d-none") %>
-            <%= image_tag("down-arrow-dark", alt: "down-arrow", class: "arrow ms-auto ms-md-2 d-lg-none d-block") %>
-          </a>
-        </li>
-        <li class="nav-item ms-lg-auto my-auto ms-3 ms-lg-0 mt-2 mt-lg-0">
-          <a href="https://www.creative-tim.com/product/material-kit" class="btn btn-sm bg-gradient-primary mb-0 me-1 mt-2 mt-md-0">Free Download</a></li>
-      </ul>
+<header class="header-rounded-images">
+  <nav class="navbar-header-css navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+    <div class="container-fluid px-0">
+      <a class="navbar-brand font-weight-bolder ms-sm-3" href="https://demos.creative-tim.com/material-kit/index" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+        Material Kit 2
+      </a>
+      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon mt-2">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+        <ul class="navbar-nav navbar-nav-hover ms-auto">
+          <li class="nav-item ms-lg-auto">
+            <div class="container py-3">
+              <div class="row text-center">
+                <div class="col-12">
+                  <%= link_to image_tag("team-4", alt: "Image placeholder"), "#" ,class: "avatar avatar-sm rounded-circle" %>
+                  <div class="btn-group">
+                    <label class="dropdown-toggle dropdown-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></label>
+                    <ul class="dropdown-menu px-2 py-3 custom-dropdown" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Profile</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Room</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Admin</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Sign out/sign in</a></li>
+                      <%= link_to "Logout", destroy_user_session_path, method: :delete , class: "dropdown-item border-radius-md" %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header min-vh-90">
+    <img class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0" src="https://images.unsplash.com/photo-1538681105587-85640961bf8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="image" loading="lazy">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 d-flex">
+          <div class="card card-body blur text-md-start text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+            <h2 class="text-dark mb-4">Choose the best</h2>
+            <p class="lead text-dark pe-md-5 me-md-5">
+              The apartments are the best choice, voted by investors and users.
+            </p>
+            <div class="buttons">
+              <button type="button" class="btn-on-header btn bg-gradient-primary mt-4">Contact Us</button>
+              <button type="button" class="btn-on-header btn btn-outline-info mt-4 ms-2">Show More</button>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-3 col-6 p-0">
+                <%= image_tag("logos/gray-logos/logo-pinterest", alt: "logo", class: "w-100") %>
+              </div>
+              <div class="col-md-3 col-6 p-0">
+                <%= image_tag("logos/gray-logos/logo-netflix", alt: "logo", class: "w-100") %>
+              </div>
+              <div class="col-md-3 col-6 p-0">
+                <%= image_tag("logos/gray-logos/logo-coinbase", alt: "logo", class: "w-100") %>
+              </div>
+              <div class="col-md-3 col-6 p-0">
+                <%= image_tag("logos/gray-logos/logo-nasa", alt: "logo", class: "w-100") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
+</header>
