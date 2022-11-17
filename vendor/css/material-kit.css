@@ -8938,6 +8938,10 @@ fieldset:disabled .btn {
   height: 100vh !important;
 }
 
+.min-vh-20 {
+  min-height: 20vh !important;
+}
+
 .min-vh-25 {
   min-height: 25vh !important;
 }
@@ -22463,7 +22467,8 @@ label,
 }
 
 .form-control {
-  border: none;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .form-control.is-invalid {

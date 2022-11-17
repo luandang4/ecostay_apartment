@@ -1,0 +1,31 @@
+.navbar-header-css{
+  z-index: 1;
+}
+
+.section-css {
+  background: #fff;
+  box-shadow: none;
+}
+
+.sign-in-bgimg-css {
+  background-image: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  background-size: cover;
+}
+
+.btn-on-header {
+  background-image: none;
+  text-shadow: none !important;
+}
+
+.btn-on-header:hover {
+  background-image: none !important;
+}
+
+.custom-dropdown {
+  top: 0 !important;
+  left: -150px !important;
+}
+
+.dropdown-icon::after {
+  margin-bottom: 9px;
+}
