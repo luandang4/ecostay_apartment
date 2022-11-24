@@ -12,6 +12,16 @@
   background-size: cover;
 }
 
+.sign-up-bgimg-css {
+  background-image: url("https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
+  background-size: cover;
+}
+
+.password-bgimg-css {
+  background-image: url("https://images.unsplash.com/photo-1558778909-1d4ea850da7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  background-size: cover;
+}
+
 .btn-on-header {
   background-image: none;
   text-shadow: none !important;
@@ -28,4 +38,9 @@
 
 .dropdown-icon::after {
   margin-bottom: 9px;
+}
+
+.override-border {
+  background: #fff;
+  box-shadow: none;
 }
