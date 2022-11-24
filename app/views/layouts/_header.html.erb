@@ -1,14 +1,12 @@
 <header class="header-rounded-images">
   <nav class="navbar-header-css navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
     <div class="container-fluid px-0">
-      <a class="navbar-brand font-weight-bolder ms-sm-3" href="https://demos.creative-tim.com/material-kit/index" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-        Material Kit 2
-      </a>
+      <%= link_to 'EcoStay', root_path, class: "navbar-brand font-weight-bolder ms-sm-3" %>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon mt-2">
-          <span class="navbar-toggler-bar bar1"></span>
-          <span class="navbar-toggler-bar bar2"></span>
-          <span class="navbar-toggler-bar bar3"></span>
+          <span class="navbar-toggler-bar bar1">asdsaasdád</span>
+          <span class="navbar-toggler-bar bar2">ádsaa</span>
+          <span class="navbar-toggler-bar bar3">ádad</span>
         </span>
       </button>
       <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
@@ -17,17 +15,26 @@
             <div class="container py-3">
               <div class="row text-center">
                 <div class="col-12">
-                  <%= link_to image_tag("team-4", alt: "Image placeholder"), "#" ,class: "avatar avatar-sm rounded-circle" %>
-                  <div class="btn-group">
-                    <label class="dropdown-toggle dropdown-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></label>
-                    <ul class="dropdown-menu px-2 py-3 custom-dropdown" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Profile</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Room</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Admin</a></li>
-                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Sign out/sign in</a></li>
-                      <%= link_to "Logout", destroy_user_session_path, method: :delete , class: "dropdown-item border-radius-md" %>
-                    </ul>
-                  </div>
+                  <% if user_signed_in? && current_user.avatar.attached? %>
+                    <%= link_to image_tag(current_user.avatar_thumnail, alt: "Image placeholder"), "#" ,class: "avatar avatar-sm rounded-circle" %>
+                  <% else %>
+                    <%= link_to image_tag("user_avatar", alt: "Image placeholder"), new_user_session_path ,class: "avatar avatar-sm rounded-circle" %>
+                  <% end %>
+
+                  <% if user_signed_in? %>
+                    <div class="btn-group">
+                      <label class="dropdown-toggle dropdown-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></label>
+                      <ul class="dropdown-menu px-2 py-3 custom-dropdown" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item border-radius-md" href="">Profile</a></li>
+                        <li><a class="dropdown-item border-radius-md" href="">Room</a></li>
+                        <% if !user_signed_in? %>
+                          <%= link_to "Sign in", new_user_session_path, method: :new , class: "dropdown-item border-radius-md" %>
+                        <% else %>
+                          <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item border-radius-md" %>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
                 </div>
               </div>
             </div>

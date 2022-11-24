@@ -54,13 +54,9 @@ ActiveAdmin.register User do
       f.input :birthdate
       f.input :address
       f.input :district
+      f.input :role
       f.input :prefecture
     end
     f.actions
-  end
-
-  def show_title
-    show_title = Proc.new { |user| "#{user.first_name} #{user.last_name}" }
-    show_title.call
   end
 end
