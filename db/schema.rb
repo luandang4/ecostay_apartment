@@ -94,9 +94,11 @@ ActiveRecord::Schema.define(version: 2022_11_24_080034) do
     t.string "prefecture"
     t.datetime "deleted_at"
     t.bigint "admin_user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_user_id"], name: "index_apartments_on_admin_user_id"
+    t.index ["user_id"], name: "index_apartments_on_user_id"
   end
 
   create_table "monthly_expenses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -132,10 +134,8 @@ ActiveRecord::Schema.define(version: 2022_11_24_080034) do
     t.text "notes"
     t.datetime "deleted_at"
     t.bigint "apartment_id"
-    t.bigint "account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_rooms_on_account_id"
     t.index ["apartment_id"], name: "index_rooms_on_apartment_id"
   end
 
@@ -183,6 +183,7 @@ ActiveRecord::Schema.define(version: 2022_11_24_080034) do
     t.string "district"
     t.string "prefecture"
     t.datetime "deleted_at"
+    t.bigint "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "encrypted_password", default: "", null: false
@@ -191,6 +192,7 @@ ActiveRecord::Schema.define(version: 2022_11_24_080034) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["room_id"], name: "index_users_on_room_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

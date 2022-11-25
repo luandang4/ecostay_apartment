@@ -7,7 +7,6 @@ class CreateRooms < ActiveRecord::Migration[6.1]
       t.datetime   :deleted_at
 
       t.references :apartment
-      t.references :account
       t.timestamps
     end
   end

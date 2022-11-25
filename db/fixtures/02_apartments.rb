@@ -1,3 +1,4 @@
+Apartment.delete_all
 first_user = User.first
 
 Apartment.seed do |u|
@@ -9,13 +10,13 @@ Apartment.seed do |u|
   u.admin_user_id = first_user.id
 end
 
-User.where.not(id: first_user.id).each do |user|
+(1..10).each do |i|
   Apartment.seed do |u|
     u.phone_number  = "09#{Faker::Number.number(digits: 9)}",
     u.name          = Faker::Name.name,
     u.address       = Faker::Address.street_address,
     u.district      = Faker::Address.state,
     u.prefecture    = Faker::Address.city,
-    u.admin_user_id = user.id
+    u.admin_user_id = 2
   end
 end

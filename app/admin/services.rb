@@ -8,7 +8,7 @@ ActiveAdmin.register Service do
     column :service_type
     column :price
     column :unit
-    column :apartment_id if current_admin_user.role.admin?
+    column :apartment_id
     actions
   end
 
@@ -22,7 +22,7 @@ ActiveAdmin.register Service do
       f.input :service_type
       f.input :price
       f.input :unit
-      f.input :apartment_id if current_admin_user.role.admin?
+      f.input :apartment_id
     end
     f.actions
   end
