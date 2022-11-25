@@ -1,3 +1,13 @@
+AdminUser.delete_all
+User.delete_all
+
+AdminUser.seed do |u|
+  u.email                 = 'luan@gmail.com'
+  u.role                  = 1
+  u.password              = '123123123'
+  u.password_confirmation = '123123123'
+end
+
 User.seed do |u|
   u.phone_number          = '0399715436'
   u.country_code          = '84'

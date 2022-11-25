@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :first_name, :last_name, :phone_number, :country_code, :sex, :birthdate, :address, :district, :prefecture
+  permit_params :email, :first_name, :last_name, :phone_number, :country_code, :sex, :birthdate, :address, :district, :prefecture, :role, :room_id
 
   index do
     selectable_column
@@ -7,6 +7,7 @@ ActiveAdmin.register User do
     column :email
     column :first_name
     column :last_name
+    column :role
     column :phone_number
     column :country_code
     column :sex
@@ -14,8 +15,7 @@ ActiveAdmin.register User do
     column :address
     column :district
     column :prefecture
-    column :created_at
-    column :updated_at
+    column :room_id
     actions
   end
 
@@ -24,6 +24,7 @@ ActiveAdmin.register User do
     row :email
     row :first_name
     row :last_name
+    row :role
     row :phone_number
     row :country_code
     row :sex
@@ -31,6 +32,7 @@ ActiveAdmin.register User do
     row :address
     row :district
     row :prefecture
+    row :room_id
     row :created_at
     row :updated_at
     end
@@ -40,12 +42,14 @@ ActiveAdmin.register User do
   filter :first_name
   filter :last_name
   filter :phone_number
+  filter :room_id
 
   form do |f|
     f.inputs do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :role
       f.input :first_name
       f.input :last_name
       f.input :phone_number
@@ -54,8 +58,8 @@ ActiveAdmin.register User do
       f.input :birthdate
       f.input :address
       f.input :district
-      f.input :role
       f.input :prefecture
+      f.input :room_id
     end
     f.actions
   end

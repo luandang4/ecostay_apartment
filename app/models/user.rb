@@ -5,10 +5,11 @@ class User < ApplicationRecord
   after_commit :add_default_avatar, on: %i[create update]
 
   has_one_attached :avatar
+  belongs_to :room
 
   enumerize :role, in: { no_role: 0, renter: 1, owner: 2 }
 
-  def avatar_thumnail
+  def avatar_thumbnail
     avatar.variant(resize: "36x36!").processed if avatar.attached?
   end
 
