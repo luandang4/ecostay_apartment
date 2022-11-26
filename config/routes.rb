@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   namespace :owner do
-    resources :home, only: %i(index)
+    resources :dashboards, only: %i(index)
   end
 
   namespace :renter do

@@ -1,5 +1,5 @@
 ActiveAdmin.register Apartment do
-  permit_params :name, :phone_number, :address, :district, :prefecture, :admin_user_id
+  permit_params :name, :phone_number, :address, :district, :prefecture, :admin_user_id, :user_id
 
   index do
     selectable_column
@@ -10,6 +10,7 @@ ActiveAdmin.register Apartment do
     column :district
     column :prefecture
     column :admin_user_id if current_admin_user.role.admin?
+    column :user_id if current_admin_user.role.admin?
     actions
   end
 
@@ -25,6 +26,7 @@ ActiveAdmin.register Apartment do
       f.input :district
       f.input :prefecture
       f.input :admin_user_id if current_admin_user.role.admin?
+      f.input :user_id if current_admin_user.role.admin?
     end
     f.actions
   end
