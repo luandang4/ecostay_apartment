@@ -5,7 +5,8 @@ class User < ApplicationRecord
   after_commit :add_default_avatar, on: %i[create update]
 
   has_one_attached :avatar
-  belongs_to :room
+  has_one :apartment
+  belongs_to :room, optional: true
 
   enumerize :role, in: { no_role: 0, renter: 1, owner: 2 }
 
