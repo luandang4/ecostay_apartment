@@ -1,10 +1,14 @@
-# frozen_string_literal: true
-
 class ApplicationOperation
-    attr_accessor :params, :form, :current_user
-  
-    def initialize(params, current_user = nil)
-      @params       = params
-      @current_user = current_user
-    end
+  attr_reader :current_user, :params, :errors
+
+  def initialize(params, current_user, opts = {})
+    @current_user = current_user
+    @params = params
   end
+
+  def call; end
+
+  def error?
+    @errors.present?
+  end
+end
