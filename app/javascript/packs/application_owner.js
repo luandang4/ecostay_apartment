@@ -38,17 +38,19 @@ document.addEventListener("turbolinks:load", () => {
     })
 })
 
+// CSS
 require('/vendor/assets/css/argon.css')
 require('/vendor/assets/vendor/nucleo/css/nucleo.css')
 require('/vendor/assets/vendor/@fortawesome/fontawesome-free/css/fontawesome.min.css')
 
+
+// JS
 require('/vendor/assets/vendor/jquery/dist/jquery.min.js')
 require('/vendor/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')
 require('/vendor/assets/vendor/js-cookie/js.cookie.js')
 require('/vendor/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js')
 require('/vendor/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')
-// require('/vendor/assets/vendor/chart.js/dist/Chart.min.js')
-// require('/vendor/assets/vendor/chart.js/dist/Chart.extension.js')
 require('/vendor/assets/js/argon.js')
 require('/vendor/assets/js/demo.min.js')
-require('/vendor/assets/vendor/jquery/dist/jquery.min.js')
+// require('/vendor/assets/vendor/chart.js/dist/Chart.min.js')
+// require('/vendor/assets/vendor/chart.js/dist/Chart.extension.js')

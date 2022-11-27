@@ -24,7 +24,7 @@
       <% if room.users.present? %>
         <%= render partial: "owner/apartments/renter", collection: room.users, as: :user %>
       <% else %>
-        <p>Empty</p>
+        <p class="text-danger">Empty</p>
       <% end %>
     </div>
   </td>

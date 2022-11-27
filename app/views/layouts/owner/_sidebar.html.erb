@@ -2,7 +2,7 @@
     <div class="scrollbar-inner">
       <div class="sidenav-header d-flex align-items-center">
         <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
-          <img src="../../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+          <%= image_tag "logo-admin", class: "navbar-brand-img" %>
         </a>
         <div class="ml-auto">
           <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin" data-target="#sidenav-main">
@@ -30,13 +30,13 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to '#', class: "nav-link" do %>
+              <%= link_to owner_services_path, class: "nav-link" do %>
                 <i class="ni ni-archive-2 text-orange"></i>
                 <span class="nav-link-text">Services</span>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to '#', class: "nav-link" do %>
+              <%= link_to owner_users_path, class: "nav-link" do %>
                 <i class="ni ni-single-02 text-info"></i>
                 <span class="nav-link-text">Users</span>
               <% end %>
