@@ -23,428 +23,429 @@
 //
 
 'use strict';
+$(document).ready(function () {
+  var Layout = (function() {
 
-var Layout = (function() {
+      function pinSidenav() {
+          $('.sidenav-toggler').addClass('active');
+          $('.sidenav-toggler').data('action', 'sidenav-unpin');
+          $('body').removeClass('g-sidenav-hidden').addClass('g-sidenav-show g-sidenav-pinned');
+          $('body').append('<div class="backdrop d-xl-none" data-action="sidenav-unpin" data-target='+$('#sidenav-main').data('target')+' />');
 
-    function pinSidenav() {
-        $('.sidenav-toggler').addClass('active');
-        $('.sidenav-toggler').data('action', 'sidenav-unpin');
-        $('body').removeClass('g-sidenav-hidden').addClass('g-sidenav-show g-sidenav-pinned');
-        $('body').append('<div class="backdrop d-xl-none" data-action="sidenav-unpin" data-target='+$('#sidenav-main').data('target')+' />');
+          // Store the sidenav state in a cookie session
+          Cookies.set('sidenav-state', 'pinned');
+      }
 
-        // Store the sidenav state in a cookie session
-        Cookies.set('sidenav-state', 'pinned');
-    }
+      function unpinSidenav() {
+          $('.sidenav-toggler').removeClass('active');
+          $('.sidenav-toggler').data('action', 'sidenav-pin');
+          $('body').removeClass('g-sidenav-pinned').addClass('g-sidenav-hidden');
+          $('body').find('.backdrop').remove();
 
-    function unpinSidenav() {
-        $('.sidenav-toggler').removeClass('active');
-        $('.sidenav-toggler').data('action', 'sidenav-pin');
-        $('body').removeClass('g-sidenav-pinned').addClass('g-sidenav-hidden');
-        $('body').find('.backdrop').remove();
+          // Store the sidenav state in a cookie session
+          Cookies.set('sidenav-state', 'unpinned');
+      }
 
-        // Store the sidenav state in a cookie session
-        Cookies.set('sidenav-state', 'unpinned');
-    }
+      // Set sidenav state from cookie
 
-    // Set sidenav state from cookie
+      var $sidenavState = Cookies.get('sidenav-state') ? Cookies.get('sidenav-state') : 'pinned';
 
-    var $sidenavState = Cookies.get('sidenav-state') ? Cookies.get('sidenav-state') : 'pinned';
+      if($(window).width() > 1200) {
+          if($sidenavState == 'pinned') {
+              pinSidenav()
+          }
 
-    if($(window).width() > 1200) {
-        if($sidenavState == 'pinned') {
-            pinSidenav()
-        }
+          if(Cookies.get('sidenav-state') == 'unpinned') {
+              unpinSidenav()
+          }
+      }
 
-        if(Cookies.get('sidenav-state') == 'unpinned') {
-            unpinSidenav()
-        }
-    }
+      $("body").on("click", "[data-action]", function(e) {
 
-    $("body").on("click", "[data-action]", function(e) {
+          e.preventDefault();
 
-        e.preventDefault();
-
-        var $this = $(this);
-        var action = $this.data('action');
-        var target = $this.data('target');
-
-
-        // Manage actions
-
-        switch (action) {
-            case 'sidenav-pin':
-                pinSidenav();
-            break;
-
-            case 'sidenav-unpin':
-                unpinSidenav();
-            break;
-
-            case 'search-show':
-                target = $this.data('target');
-                $('body').removeClass('g-navbar-search-show').addClass('g-navbar-search-showing');
-
-                setTimeout(function() {
-                    $('body').removeClass('g-navbar-search-showing').addClass('g-navbar-search-show');
-                }, 150);
-
-                setTimeout(function() {
-                    $('body').addClass('g-navbar-search-shown');
-                }, 300)
-            break;
-
-            case 'search-close':
-                target = $this.data('target');
-                $('body').removeClass('g-navbar-search-shown');
-
-                setTimeout(function() {
-                    $('body').removeClass('g-navbar-search-show').addClass('g-navbar-search-hiding');
-                }, 150);
-
-                setTimeout(function() {
-                    $('body').removeClass('g-navbar-search-hiding').addClass('g-navbar-search-hidden');
-                }, 300);
-
-                setTimeout(function() {
-                    $('body').removeClass('g-navbar-search-hidden');
-                }, 500);
-            break;
-        }
-    })
+          var $this = $(this);
+          var action = $this.data('action');
+          var target = $this.data('target');
 
 
-    // Add sidenav modifier classes on mouse events
+          // Manage actions
 
-    $('.sidenav').on('mouseenter', function() {
-        if(! $('body').hasClass('g-sidenav-pinned')) {
-            $('body').removeClass('g-sidenav-hide').removeClass('g-sidenav-hidden').addClass('g-sidenav-show');
-        }
-    })
+          switch (action) {
+              case 'sidenav-pin':
+                  pinSidenav();
+              break;
 
-    $('.sidenav').on('mouseleave', function() {
-        if(! $('body').hasClass('g-sidenav-pinned')) {
-            $('body').removeClass('g-sidenav-show').addClass('g-sidenav-hide');
+              case 'sidenav-unpin':
+                  unpinSidenav();
+              break;
 
-            setTimeout(function() {
-                $('body').removeClass('g-sidenav-hide').addClass('g-sidenav-hidden');
-            }, 300);
-        }
-    })
+              case 'search-show':
+                  target = $this.data('target');
+                  $('body').removeClass('g-navbar-search-show').addClass('g-navbar-search-showing');
+
+                  setTimeout(function() {
+                      $('body').removeClass('g-navbar-search-showing').addClass('g-navbar-search-show');
+                  }, 150);
+
+                  setTimeout(function() {
+                      $('body').addClass('g-navbar-search-shown');
+                  }, 300)
+              break;
+
+              case 'search-close':
+                  target = $this.data('target');
+                  $('body').removeClass('g-navbar-search-shown');
+
+                  setTimeout(function() {
+                      $('body').removeClass('g-navbar-search-show').addClass('g-navbar-search-hiding');
+                  }, 150);
+
+                  setTimeout(function() {
+                      $('body').removeClass('g-navbar-search-hiding').addClass('g-navbar-search-hidden');
+                  }, 300);
+
+                  setTimeout(function() {
+                      $('body').removeClass('g-navbar-search-hidden');
+                  }, 500);
+              break;
+          }
+      })
 
 
-    // Make the body full screen size if it has not enough content inside
-    $(window).on('load resize', function() {
-        if($('body').height() < 800) {
-            $('body').css('min-height', '100vh');
-            $('#footer-main').addClass('footer-auto-bottom')
-        }
-    })
+      // Add sidenav modifier classes on mouse events
 
-})();
+      $('.sidenav').on('mouseenter', function() {
+          if(! $('body').hasClass('g-sidenav-pinned')) {
+              $('body').removeClass('g-sidenav-hide').removeClass('g-sidenav-hidden').addClass('g-sidenav-show');
+          }
+      })
 
+      $('.sidenav').on('mouseleave', function() {
+          if(! $('body').hasClass('g-sidenav-pinned')) {
+              $('body').removeClass('g-sidenav-show').addClass('g-sidenav-hide');
+
+              setTimeout(function() {
+                  $('body').removeClass('g-sidenav-hide').addClass('g-sidenav-hidden');
+              }, 300);
+          }
+      })
+
+
+      // Make the body full screen size if it has not enough content inside
+      $(window).on('load resize', function() {
+          if($('body').height() < 800) {
+              $('body').css('min-height', '100vh');
+              $('#footer-main').addClass('footer-auto-bottom')
+          }
+      })
+
+  })();
+})
 //
 // Charts
 //
 
 'use strict';
+$(document).ready(function () {
+  var Charts = (function() {
 
-var Charts = (function() {
+    // Variable
 
-	// Variable
+    var $toggle = $('[data-toggle="chart"]');
+    var mode = 'light';//(themeMode) ? themeMode : 'light';
+    var fonts = {
+      base: 'Open Sans'
+    }
 
-	var $toggle = $('[data-toggle="chart"]');
-	var mode = 'light';//(themeMode) ? themeMode : 'light';
-	var fonts = {
-		base: 'Open Sans'
-	}
-
-	// Colors
-	var colors = {
-		gray: {
-			100: '#f6f9fc',
-			200: '#e9ecef',
-			300: '#dee2e6',
-			400: '#ced4da',
-			500: '#adb5bd',
-			600: '#8898aa',
-			700: '#525f7f',
-			800: '#32325d',
-			900: '#212529'
-		},
-		theme: {
-			'default': '#172b4d',
-			'primary': '#5e72e4',
-			'secondary': '#f4f5f7',
-			'info': '#11cdef',
-			'success': '#2dce89',
-			'danger': '#f5365c',
-			'warning': '#fb6340'
-		},
-		black: '#12263F',
-		white: '#FFFFFF',
-		transparent: 'transparent',
-	};
-
-
-	// Methods
-
-	// Chart.js global options
-	function chartOptions() {
-
-		// Options
-		var options = {
-			defaults: {
-				global: {
-					responsive: true,
-					maintainAspectRatio: false,
-					defaultColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
-					defaultFontColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
-					defaultFontFamily: fonts.base,
-					defaultFontSize: 13,
-					layout: {
-						padding: 0
-					},
-					legend: {
-						display: false,
-						position: 'bottom',
-						labels: {
-							usePointStyle: true,
-							padding: 16
-						}
-					},
-					elements: {
-						point: {
-							radius: 0,
-							backgroundColor: colors.theme['primary']
-						},
-						line: {
-							tension: .4,
-							borderWidth: 4,
-							borderColor: colors.theme['primary'],
-							backgroundColor: colors.transparent,
-							borderCapStyle: 'rounded'
-						},
-						rectangle: {
-							backgroundColor: colors.theme['warning']
-						},
-						arc: {
-							backgroundColor: colors.theme['primary'],
-							borderColor: (mode == 'dark') ? colors.gray[800] : colors.white,
-							borderWidth: 4
-						}
-					},
-					tooltips: {
-						enabled: true,
-						mode: 'index',
-						intersect: false,
-					}
-				},
-				doughnut: {
-					cutoutPercentage: 83,
-					legendCallback: function(chart) {
-						var data = chart.data;
-						var content = '';
-
-						data.labels.forEach(function(label, index) {
-							var bgColor = data.datasets[0].backgroundColor[index];
-
-							content += '<span class="chart-legend-item">';
-							content += '<i class="chart-legend-indicator" style="background-color: ' + bgColor + '"></i>';
-							content += label;
-							content += '</span>';
-						});
-
-						return content;
-					}
-				}
-			}
-		}
-
-		// yAxes
-		Chart.scaleService.updateScaleDefaults('linear', {
-			gridLines: {
-				borderDash: [2],
-				borderDashOffset: [2],
-				color: (mode == 'dark') ? colors.gray[900] : colors.gray[300],
-				drawBorder: false,
-				drawTicks: false,
-				drawOnChartArea: true,
-				zeroLineWidth: 0,
-				zeroLineColor: 'rgba(0,0,0,0)',
-				zeroLineBorderDash: [2],
-				zeroLineBorderDashOffset: [2]
-			},
-			ticks: {
-				beginAtZero: true,
-				padding: 10,
-				callback: function(value) {
-					if (!(value % 10)) {
-						return value
-					}
-				}
-			}
-		});
-
-		// xAxes
-		Chart.scaleService.updateScaleDefaults('category', {
-			gridLines: {
-				drawBorder: false,
-				drawOnChartArea: false,
-				drawTicks: false
-			},
-			ticks: {
-				padding: 20
-			},
-			maxBarThickness: 10
-		});
-
-		return options;
-
-	}
-
-	// Parse global options
-	function parseOptions(parent, options) {
-		for (var item in options) {
-			if (typeof options[item] !== 'object') {
-				parent[item] = options[item];
-			} else {
-				parseOptions(parent[item], options[item]);
-			}
-		}
-	}
-
-	// Push options
-	function pushOptions(parent, options) {
-		for (var item in options) {
-			if (Array.isArray(options[item])) {
-				options[item].forEach(function(data) {
-					parent[item].push(data);
-				});
-			} else {
-				pushOptions(parent[item], options[item]);
-			}
-		}
-	}
-
-	// Pop options
-	function popOptions(parent, options) {
-		for (var item in options) {
-			if (Array.isArray(options[item])) {
-				options[item].forEach(function(data) {
-					parent[item].pop();
-				});
-			} else {
-				popOptions(parent[item], options[item]);
-			}
-		}
-	}
-
-	// Toggle options
-	function toggleOptions(elem) {
-		var options = elem.data('add');
-		var $target = $(elem.data('target'));
-		var $chart = $target.data('chart');
-
-		if (elem.is(':checked')) {
-
-			// Add options
-			pushOptions($chart, options);
-
-			// Update chart
-			$chart.update();
-		} else {
-
-			// Remove options
-			popOptions($chart, options);
-
-			// Update chart
-			$chart.update();
-		}
-	}
-
-	// Update options
-	function updateOptions(elem) {
-		var options = elem.data('update');
-		var $target = $(elem.data('target'));
-		var $chart = $target.data('chart');
-
-		// Parse options
-		parseOptions($chart, options);
-
-		// Toggle ticks
-		toggleTicks(elem, $chart);
-
-		// Update chart
-		$chart.update();
-	}
-
-	// Toggle ticks
-	function toggleTicks(elem, $chart) {
-
-		if (elem.data('prefix') !== undefined || elem.data('prefix') !== undefined) {
-			var prefix = elem.data('prefix') ? elem.data('prefix') : '';
-			var suffix = elem.data('suffix') ? elem.data('suffix') : '';
-
-			// Update ticks
-			$chart.options.scales.yAxes[0].ticks.callback = function(value) {
-				if (!(value % 10)) {
-					return prefix + value + suffix;
-				}
-			}
-
-			// Update tooltips
-			$chart.options.tooltips.callbacks.label = function(item, data) {
-				var label = data.datasets[item.datasetIndex].label || '';
-				var yLabel = item.yLabel;
-				var content = '';
-
-				if (data.datasets.length > 1) {
-					content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-				}
-
-				content += '<span class="popover-body-value">' + prefix + yLabel + suffix + '</span>';
-				return content;
-			}
-
-		}
-	}
+    // Colors
+    var colors = {
+      gray: {
+        100: '#f6f9fc',
+        200: '#e9ecef',
+        300: '#dee2e6',
+        400: '#ced4da',
+        500: '#adb5bd',
+        600: '#8898aa',
+        700: '#525f7f',
+        800: '#32325d',
+        900: '#212529'
+      },
+      theme: {
+        'default': '#172b4d',
+        'primary': '#5e72e4',
+        'secondary': '#f4f5f7',
+        'info': '#11cdef',
+        'success': '#2dce89',
+        'danger': '#f5365c',
+        'warning': '#fb6340'
+      },
+      black: '#12263F',
+      white: '#FFFFFF',
+      transparent: 'transparent',
+    };
 
 
-	// Events
+    // Methods
 
-	// Parse global options
-	if (window.Chart) {
-		parseOptions(Chart, chartOptions());
-	}
+    // Chart.js global options
+    function chartOptions() {
 
-	// Toggle options
-	$toggle.on({
-		'change': function() {
-			var $this = $(this);
+      // Options
+      var options = {
+        defaults: {
+          global: {
+            responsive: true,
+            maintainAspectRatio: false,
+            defaultColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
+            defaultFontColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
+            defaultFontFamily: fonts.base,
+            defaultFontSize: 13,
+            layout: {
+              padding: 0
+            },
+            legend: {
+              display: false,
+              position: 'bottom',
+              labels: {
+                usePointStyle: true,
+                padding: 16
+              }
+            },
+            elements: {
+              point: {
+                radius: 0,
+                backgroundColor: colors.theme['primary']
+              },
+              line: {
+                tension: .4,
+                borderWidth: 4,
+                borderColor: colors.theme['primary'],
+                backgroundColor: colors.transparent,
+                borderCapStyle: 'rounded'
+              },
+              rectangle: {
+                backgroundColor: colors.theme['warning']
+              },
+              arc: {
+                backgroundColor: colors.theme['primary'],
+                borderColor: (mode == 'dark') ? colors.gray[800] : colors.white,
+                borderWidth: 4
+              }
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'index',
+              intersect: false,
+            }
+          },
+          doughnut: {
+            cutoutPercentage: 83,
+            legendCallback: function(chart) {
+              var data = chart.data;
+              var content = '';
 
-			if ($this.is('[data-add]')) {
-				toggleOptions($this);
-			}
-		},
-		'click': function() {
-			var $this = $(this);
+              data.labels.forEach(function(label, index) {
+                var bgColor = data.datasets[0].backgroundColor[index];
 
-			if ($this.is('[data-update]')) {
-				updateOptions($this);
-			}
-		}
-	});
+                content += '<span class="chart-legend-item">';
+                content += '<i class="chart-legend-indicator" style="background-color: ' + bgColor + '"></i>';
+                content += label;
+                content += '</span>';
+              });
+
+              return content;
+            }
+          }
+        }
+      }
+
+      // yAxes
+      Chart.scaleService.updateScaleDefaults('linear', {
+        gridLines: {
+          borderDash: [2],
+          borderDashOffset: [2],
+          color: (mode == 'dark') ? colors.gray[900] : colors.gray[300],
+          drawBorder: false,
+          drawTicks: false,
+          drawOnChartArea: true,
+          zeroLineWidth: 0,
+          zeroLineColor: 'rgba(0,0,0,0)',
+          zeroLineBorderDash: [2],
+          zeroLineBorderDashOffset: [2]
+        },
+        ticks: {
+          beginAtZero: true,
+          padding: 10,
+          callback: function(value) {
+            if (!(value % 10)) {
+              return value
+            }
+          }
+        }
+      });
+
+      // xAxes
+      Chart.scaleService.updateScaleDefaults('category', {
+        gridLines: {
+          drawBorder: false,
+          drawOnChartArea: false,
+          drawTicks: false
+        },
+        ticks: {
+          padding: 20
+        },
+        maxBarThickness: 10
+      });
+
+      return options;
+
+    }
+
+    // Parse global options
+    function parseOptions(parent, options) {
+      for (var item in options) {
+        if (typeof options[item] !== 'object') {
+          parent[item] = options[item];
+        } else {
+          parseOptions(parent[item], options[item]);
+        }
+      }
+    }
+
+    // Push options
+    function pushOptions(parent, options) {
+      for (var item in options) {
+        if (Array.isArray(options[item])) {
+          options[item].forEach(function(data) {
+            parent[item].push(data);
+          });
+        } else {
+          pushOptions(parent[item], options[item]);
+        }
+      }
+    }
+
+    // Pop options
+    function popOptions(parent, options) {
+      for (var item in options) {
+        if (Array.isArray(options[item])) {
+          options[item].forEach(function(data) {
+            parent[item].pop();
+          });
+        } else {
+          popOptions(parent[item], options[item]);
+        }
+      }
+    }
+
+    // Toggle options
+    function toggleOptions(elem) {
+      var options = elem.data('add');
+      var $target = $(elem.data('target'));
+      var $chart = $target.data('chart');
+
+      if (elem.is(':checked')) {
+
+        // Add options
+        pushOptions($chart, options);
+
+        // Update chart
+        $chart.update();
+      } else {
+
+        // Remove options
+        popOptions($chart, options);
+
+        // Update chart
+        $chart.update();
+      }
+    }
+
+    // Update options
+    function updateOptions(elem) {
+      var options = elem.data('update');
+      var $target = $(elem.data('target'));
+      var $chart = $target.data('chart');
+
+      // Parse options
+      parseOptions($chart, options);
+
+      // Toggle ticks
+      toggleTicks(elem, $chart);
+
+      // Update chart
+      $chart.update();
+    }
+
+    // Toggle ticks
+    function toggleTicks(elem, $chart) {
+
+      if (elem.data('prefix') !== undefined || elem.data('prefix') !== undefined) {
+        var prefix = elem.data('prefix') ? elem.data('prefix') : '';
+        var suffix = elem.data('suffix') ? elem.data('suffix') : '';
+
+        // Update ticks
+        $chart.options.scales.yAxes[0].ticks.callback = function(value) {
+          if (!(value % 10)) {
+            return prefix + value + suffix;
+          }
+        }
+
+        // Update tooltips
+        $chart.options.tooltips.callbacks.label = function(item, data) {
+          var label = data.datasets[item.datasetIndex].label || '';
+          var yLabel = item.yLabel;
+          var content = '';
+
+          if (data.datasets.length > 1) {
+            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+          }
+
+          content += '<span class="popover-body-value">' + prefix + yLabel + suffix + '</span>';
+          return content;
+        }
+
+      }
+    }
 
 
-	// Return
+    // Events
 
-	return {
-		colors: colors,
-		fonts: fonts,
-		mode: mode
-	};
+    // Parse global options
+    if (window.Chart) {
+      parseOptions(Chart, chartOptions());
+    }
 
-})();
+    // Toggle options
+    $toggle.on({
+      'change': function() {
+        var $this = $(this);
+
+        if ($this.is('[data-add]')) {
+          toggleOptions($this);
+        }
+      },
+      'click': function() {
+        var $this = $(this);
+
+        if ($this.is('[data-update]')) {
+          updateOptions($this);
+        }
+      }
+    });
+
+
+    // Return
+
+    return {
+      colors: colors,
+      fonts: fonts,
+      mode: mode
+    };
+
+  })();
+})
 
 //
 // Icon code copy/paste
@@ -1455,77 +1456,77 @@ if($('[data-toggle="widget-calendar"]')[0]) {
         defaultDate: '2018-12-01',
         editable: true,
         events: [
-            
+
             {
                 title: 'Call with Dave',
                 start: '2018-11-18',
                 end: '2018-11-18',
                 className: 'bg-red'
             },
-            
+
             {
                 title: 'Lunch meeting',
                 start: '2018-11-21',
                 end: '2018-11-22',
                 className: 'bg-orange'
             },
-            
+
             {
                 title: 'All day conference',
                 start: '2018-11-29',
                 end: '2018-11-29',
                 className: 'bg-green'
             },
-            
+
             {
                 title: 'Meeting with Mary',
                 start: '2018-12-01',
                 end: '2018-12-01',
                 className: 'bg-blue'
             },
-            
+
             {
                 title: 'Winter Hackaton',
                 start: '2018-12-03',
                 end: '2018-12-03',
                 className: 'bg-red'
             },
-            
+
             {
                 title: 'Digital event',
                 start: '2018-12-07',
                 end: '2018-12-09',
                 className: 'bg-warning'
             },
-            
+
             {
                 title: 'Marketing event',
                 start: '2018-12-10',
                 end: '2018-12-10',
                 className: 'bg-purple'
             },
-            
+
             {
                 title: 'Dinner with Family',
                 start: '2018-12-19',
                 end: '2018-12-19',
                 className: 'bg-red'
             },
-            
+
             {
                 title: 'Black Friday',
                 start: '2018-12-23',
                 end: '2018-12-23',
                 className: 'bg-blue'
             },
-            
+
             {
                 title: 'Cyber Week',
                 start: '2018-12-02',
                 end: '2018-12-02',
                 className: 'bg-yellow'
             },
-            
+
         ]
     });
 
@@ -1885,7 +1886,7 @@ var Fullcalendar = (function() {
 		// Calendar events
 
 		var events = [
-			
+
             {
 				id: 1,
 				title: 'Call with Dave',
@@ -1894,7 +1895,7 @@ var Fullcalendar = (function() {
 				className: 'bg-red',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 2,
 				title: 'Lunch meeting',
@@ -1903,7 +1904,7 @@ var Fullcalendar = (function() {
 				className: 'bg-orange',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 3,
 				title: 'All day conference',
@@ -1912,7 +1913,7 @@ var Fullcalendar = (function() {
 				className: 'bg-green',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 4,
 				title: 'Meeting with Mary',
@@ -1921,7 +1922,7 @@ var Fullcalendar = (function() {
 				className: 'bg-blue',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 5,
 				title: 'Winter Hackaton',
@@ -1930,7 +1931,7 @@ var Fullcalendar = (function() {
 				className: 'bg-red',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 6,
 				title: 'Digital event',
@@ -1939,7 +1940,7 @@ var Fullcalendar = (function() {
 				className: 'bg-warning',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 7,
 				title: 'Marketing event',
@@ -1948,7 +1949,7 @@ var Fullcalendar = (function() {
 				className: 'bg-purple',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 8,
 				title: 'Dinner with Family',
@@ -1957,7 +1958,7 @@ var Fullcalendar = (function() {
 				className: 'bg-red',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 9,
 				title: 'Black Friday',
@@ -1966,7 +1967,7 @@ var Fullcalendar = (function() {
 				className: 'bg-blue',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 10,
 				title: 'Cyber Week',
@@ -1975,7 +1976,7 @@ var Fullcalendar = (function() {
 				className: 'bg-yellow',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
 		],
 
 

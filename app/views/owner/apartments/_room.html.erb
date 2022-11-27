@@ -1,0 +1,53 @@
+<tr>
+  <th scope="row">
+    <div class="media align-items-center">
+      <div class="media-body">
+        <span class="name mb-0 text-sm"><%= room.name %></span>
+      </div>
+    </div>
+  </th>
+  <td class="budget">
+    $2500 USD
+  </td>
+  <td>
+    <span class="badge badge-dot mr-4">
+      <% if room.status.available? %>
+        <i class="bg-success"></i>
+      <% else %>
+        <i class="bg-warning"></i>
+      <% end %>
+      <span class="status"><%= room.status %></span>
+    </span>
+  </td>
+  <td>
+    <div class="avatar-group">
+      <% if room.users.present? %>
+        <%= render partial: "owner/apartments/renter", collection: room.users, as: :user %>
+      <% else %>
+        <p>Empty</p>
+      <% end %>
+    </div>
+  </td>
+  <td>
+    <div class="d-flex align-items-center">
+      <span class="completion mr-2">60%</span>
+      <div>
+        <div class="progress">
+          <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+        </div>
+      </div>
+    </div>
+  </td>
+  <td class="text-right">
+    <div class="dropdown">
+      <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-ellipsis-v"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+  </td>
+</tr>

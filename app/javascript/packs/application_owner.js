@@ -14,6 +14,9 @@
 
 
 require("@popperjs/core")
+import Cookies from 'js-cookie'
+
+window.Cookies = Cookies;
 
 import "bootstrap"
 import "@fortawesome/fontawesome-free/css/all"
@@ -48,3 +51,4 @@ require('/vendor/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js'
 // require('/vendor/assets/vendor/chart.js/dist/Chart.extension.js')
 require('/vendor/assets/js/argon.js')
 require('/vendor/assets/js/demo.min.js')
+require('/vendor/assets/vendor/jquery/dist/jquery.min.js')
