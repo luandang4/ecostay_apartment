@@ -1,0 +1,33 @@
+<tr>
+  <th scope="row">
+    <div class="media align-items-center">
+      <div class="media-body">
+        <%= link_to owner_user_path(user) do %>
+          <%= image_tag user.avatar, class: "avatar rounded-circle mr-3" %>
+          <span class="name mb-0 text-sm"><%= user.first_name + ' ' + user.last_name %></span>
+        <% end %>
+      </div>
+    </div>
+  </th>
+  <td class="budget"><%= user.phone_number %></td>
+  <td>
+    <span class="badge badge-dot mr-4">
+      <span class="status"><%= user.birthdate %></span>
+    </span>
+  </td>
+  <td>
+    <span class="badge badge-dot mr-4">
+      <span class="status"><%= user.address %></span>
+    </span>
+  </td>
+  <td>
+    <span class="badge badge-dot mr-4">
+      <span class="status"><%= user.district %></span>
+    </span>
+  </td>
+  <td class="text-right">
+    <span class="badge badge-dot mr-4">
+      <span class="status"><%= user.prefecture %></span>
+    </span>
+  </td>
+</tr>

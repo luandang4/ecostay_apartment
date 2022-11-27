@@ -1,0 +1,20 @@
+<tr>
+  <th scope="row">
+    <div class="media align-items-center">
+      <div class="media-body">
+        <span class="name mb-0 text-sm"><%= link_to service.name, owner_service_path(service) %></span>
+      </div>
+    </div>
+  </th>
+  <td class="budget"><%= service.service_type %></td>
+  <td>
+    <span class="badge badge-dot mr-4">
+      <span class="status"><%= service.price %></span>
+    </span>
+  </td>
+  <td>
+    <span class="badge badge-dot mr-4">
+      <span class="status"><%= service.unit %></span>
+    </span>
+  </td>
+</tr>
