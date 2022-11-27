@@ -1,5 +1,6 @@
 Apartment.delete_all
-first_user = User.first
+first_user  = User.first
+first_admin = AdminUser.first
 
 Apartment.seed do |u|
   u.name          = 'SV Apartment',
@@ -7,7 +8,8 @@ Apartment.seed do |u|
   u.address       = '47 Lê Lộ',
   u.district      = 'Sơn Trà',
   u.prefecture    = 'Đà Nẵng',
-  u.admin_user_id = first_user.id
+  u.admin_user_id = first_admin.id
+  u.user_id       = first_user.id
 end
 
 (1..10).each do |i|

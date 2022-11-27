@@ -1,0 +1,2 @@
+<% name = user.first_name + ' ' + user.last_name %>
+<%= link_to image_tag(user.avatar , alt: "Image placeholder"), "#", { class: "avatar rounded-circle", 'data-toggle' => 'tooltip', 'data-original-title' => name }%>

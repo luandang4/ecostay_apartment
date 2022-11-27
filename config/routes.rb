@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :owner do
     resources :dashboards, only: %i(index)
+    resources :apartments, only: %i(index)
   end
 
   namespace :renter do

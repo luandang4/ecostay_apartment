@@ -19,6 +19,7 @@ User.seed do |u|
   u.email                 = 'luandang4@gmail.com'
   u.password              = '123123123'
   u.password_confirmation = '123123123'
+  u.role                  = 2
 end
 
 10.times do
