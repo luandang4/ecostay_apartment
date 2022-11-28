@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :first_name, :last_name, :phone_number, :country_code, :sex, :birthdate, :address, :district, :prefecture, :role
+  permit_params :email, :first_name, :last_name, :phone_number, :country_code, :sex, :birthdate, :address, :district, :prefecture, :role, :room_id
 
   index do
     selectable_column
@@ -15,6 +15,7 @@ ActiveAdmin.register User do
     column :address
     column :district
     column :prefecture
+    column :room_id
     actions
   end
 
@@ -56,6 +57,7 @@ ActiveAdmin.register User do
       f.input :address
       f.input :district
       f.input :prefecture
+      f.input :room_id
     end
     f.actions
   end

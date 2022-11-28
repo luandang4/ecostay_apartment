@@ -16,15 +16,15 @@
       <% else %>
         <i class="bg-warning"></i>
       <% end %>
-      <span class="status"><%= room.status %></span>
+      <span class="status text-capitalize"><%= room.status %></span>
     </span>
   </td>
   <td>
     <div class="avatar-group">
-      <% if room.users.present? %>
+      <% if room.status.leased? && room.users.present? %>
         <%= render partial: "owner/apartments/renter", collection: room.users, as: :user %>
-      <% else %>
-        <p class="text-danger">Empty</p>
+      <% elsif room.status.available? %>
+        <p class="text-primary">None</p>
       <% end %>
     </div>
   </td>

@@ -298,6 +298,7 @@ DEPENDENCIES
   devise (~> 4.8.1)
   enumerize (~> 2.3)
   faker!
+  i18n (~> 1.12)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)

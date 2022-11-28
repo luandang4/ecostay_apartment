@@ -17,6 +17,10 @@
       </form>
       <!-- Navbar links -->
       <ul class="navbar-nav align-items-center ml-md-auto">
+        <li class="nav-item">
+          <%= link_to "EN", { locale: "en"} , { class: "text-light" } %>
+          <%= link_to "VI", { locale: "vi"} , { class: "text-light" } %>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="ni ni-bell-55"></i>
@@ -176,7 +180,7 @@
       </ul>
       <ul class="navbar-nav align-items-center ml-auto ml-md-0">
         <li class="nav-item dropdown">
-          <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link pr-0 c-dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
                 <%= image_tag current_user.avatar, alt: "Image placeholder" %>

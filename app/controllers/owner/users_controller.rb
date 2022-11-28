@@ -4,7 +4,7 @@ class Owner::UsersController < Owner::BaseController
     operation.call
 
     @apartment = operation.apartment
-    @users = operation.users
+    @users     = operation.users
   end
 
   def show
