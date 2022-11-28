@@ -23,6 +23,8 @@ import "@fortawesome/fontawesome-free/css/all"
 
 import { Tooltip, Popover } from "bootstrap"
 
+// import "./owner"
+
 // require("../stylesheets/application.scss")
 
 document.addEventListener("turbolinks:load", () => {

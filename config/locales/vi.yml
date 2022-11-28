@@ -1,11 +1,11 @@
-en:
+vi:
   owner:
     apartments:
       index:
-        room: 'Room'
+        room: 'Phòng'
         budget:
-        status: 'Status'
-        user: 'Renter'
+        status: 'Trạng thái'
+        user: 'Người thuê'
         completion:
 
   time:

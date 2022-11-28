@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
   layout Proc.new { |controller| controller.devise_controller? ? "devise/devise_custom_main" : "application"}
 
   protected
@@ -14,5 +15,13 @@ class ApplicationController < ActionController::Base
 
   def access_denied(exception)
     redirect_to admin_root_path, alert: exception.message
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options
+    {locale: I18n.locale}
   end
 end
