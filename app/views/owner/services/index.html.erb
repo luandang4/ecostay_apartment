@@ -13,7 +13,7 @@
           </nav>
         </div>
         <div class="col-lg-6 col-5 text-right">
-          <a href="#" class="btn btn-sm btn-neutral">New</a>
+          <%= link_to "New", new_owner_service_path, class: "btn btn-sm btn-neutral" %>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
   <div class="card mb-4">
     <!-- Card header -->
     <div class="card-header">
-      <h3 class="mb-0"><%= @apartment.name %></h3>
+      <h3 class="mb-0"><%= @apartment.name if @apartment.present? %></h3>
     </div>
     <!-- Card body -->
     <div class="card-body">
@@ -43,7 +43,9 @@
                   </tr>
                 </thead>
                 <tbody class="list">
-                  <%= render partial: "owner/services/service", collection: @services, as: :service %>
+                  <% if @services.present? %>
+                    <%= render partial: "owner/services/service", collection: @services, as: :service %>
+                  <% end %>
                 </tbody>
               </table>
             </div>

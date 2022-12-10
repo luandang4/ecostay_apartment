@@ -1,4 +1,4 @@
-class Owner::Services::IndexOperation < ApplicationOperation
+class Owner::Services::ShowOperation < ApplicationOperation
 
 def initialize(params, current_user, options = {})
     super
@@ -7,26 +7,20 @@ def initialize(params, current_user, options = {})
 
   def call
     set_instance_variables
-    set_apartment
-    set_services
+    set_service
   end
 
   private
 
   def set_instance_variables
     %i[
-      apartment
-      services
+      service
     ].each do |v|
       singleton_class.class_eval { attr_reader v }
     end
   end
 
-  def set_apartment
-    @apartment = current_user.apartment
-  end
-
-  def set_services
-    @services = apartment&.services
+  def set_service
+    @service = Service.find(params[:id])
   end
 end

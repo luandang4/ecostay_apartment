@@ -5,7 +5,7 @@ class ApplicationForm
     include ActiveModel::Attributes
     extend ActiveModel::Translation
     include ActiveModel::Validations::Callbacks
-    
+
     def initialize(attributes = {})
       # Define dynamic attributes
       self.class.attribute_names.each do |attr|
@@ -13,22 +13,22 @@ class ApplicationForm
       end
       super attributes
     end
-  
+
     def self.human_attribute_name(attr, _options = {})
       attr
     end
-  
+
     def valid!
       raise ExceptionError::UnprocessableEntity, error_messages.to_json unless valid?
     end
-  
-    private
-  
-    def error_messages
+
+
+    def error_message
       errors.messages.map { |key, value| { key => value.first } }
     end
-  
-    def attribute_names
+
+    private
+    def self.attribute_names
       []
     end
   end

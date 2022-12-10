@@ -17,4 +17,13 @@
       <span class="status"><%= service.unit %></span>
     </span>
   </td>
+  <td>
+    <span class="badge badge-dot mr-4">
+      <%= form_tag(owner_service_url(service), method: :delete, remote: true, class: 'js-delete-service') do %>
+        <%= link_to 'javascript: void(0)', class: 'js-btn-delete-service'  do %>
+          <i class="fa-solid fa-trash text-danger"></i>
+        <% end %>
+      <% end %>
+    </span>
+  </td>
 </tr>

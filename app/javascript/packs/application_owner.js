@@ -23,9 +23,9 @@ import "@fortawesome/fontawesome-free/css/all"
 
 import { Tooltip, Popover } from "bootstrap"
 
-// import "./owner"
+import "./owner"
 
-// require("../stylesheets/application.scss")
+require("../stylesheets/owner_base.scss")
 
 document.addEventListener("turbolinks:load", () => {
     // Both of these are from the Bootstrap 5 docs
