@@ -13,5 +13,6 @@ class Owner::UsersController < Owner::BaseController
 
     @user = operation.user
     @name = operation.name
+    @age  = operation.age
   end
 end

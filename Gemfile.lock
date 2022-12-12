@@ -47,6 +47,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_admin_datetimepicker (1.0.0)
+      activeadmin (>= 2.0, < 3.a)
     activeadmin (2.13.1)
       arbre (~> 1.2, >= 1.2.1)
       formtastic (>= 3.1, < 5.0)
@@ -289,6 +291,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  active_admin_datetimepicker (~> 1.0)
   activeadmin (~> 2.13.1)
   awesome_print
   bootsnap (>= 1.4.4)
@@ -301,6 +304,7 @@ DEPENDENCIES
   i18n (~> 1.12)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
+  jquery-rails
   listen (~> 3.3)
   mysql2 (~> 0.5)
   pry

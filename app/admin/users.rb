@@ -53,7 +53,7 @@ ActiveAdmin.register User do
       f.input :phone_number
       f.input :country_code
       f.input :sex
-      f.input :birthdate
+      f.input :birthdate, as: :date_time_picker, datepicker_options: { min_date: "1920-1-1", max_date: "+80Y" }
       f.input :address
       f.input :district
       f.input :prefecture
