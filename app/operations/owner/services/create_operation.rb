@@ -29,11 +29,13 @@ def initialize(params, current_user, options = {})
   end
 
   def validation
-    attrs   = params.require(:service).permit(Owner::Services::CreateForm.attribute_names)
+    attrs   = params[:owner_services_new_form].present? ?
+              params.require(:owner_services_new_form).permit(Owner::Services::CreateForm.attribute_names) :
+              params.require(:owner_services_create_form).permit(Owner::Services::CreateForm.attribute_names)
+
     @form   = Owner::Services::CreateForm.new(attrs)
     return if form.valid?
 
-    @errors = form.error_message
     yield
   end
 

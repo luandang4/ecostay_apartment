@@ -21,6 +21,7 @@ gem 'seed-fu', '~> 2.3'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 gem 'image_processing', '~> 1.2'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    errors:
+      models:
+        service:
+          attributes:
+            name:
+              blank: "Message"
+            service_type:
+              blank: Message
+            price:
+              blank: Message
+            unit:
+              blank: Message
