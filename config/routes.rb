@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :owner do
     resources :dashboards, only: %i(index)
     resources :apartments, only: %i(index)
-    resources :users,      only: %i(index show)
+    resources :users,      only: %i(index show new create update)
     resources :services,   only: %i(index show new create update destroy)
     resources :rooms,      only: %i(new create update)
   end

@@ -29,12 +29,12 @@ def initialize(params, current_user, options = {})
   end
 
   def set_name
-    @name = user.first_name + ' ' + user.last_name
+    @name = user.name
   end
 
   def set_age
-    birth_date = user.birthdate.to_date
+    birth_date = user&.birthdate&.to_date
     now = Date.today
-    @age = now.year - birth_date.year
+    @age = now.year - birth_date.year if birth_date.present?
   end
 end

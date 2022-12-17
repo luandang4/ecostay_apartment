@@ -24,4 +24,8 @@ $(document).ready(function(){
   setTimeout(function() {
     $('.alert-dismissible').hide()
   }, 3500);
+
+  setTimeout(function() {
+    $('.errors-message').hide()
+  }, 3000);
 });

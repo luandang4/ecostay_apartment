@@ -1,12 +1,11 @@
 ActiveAdmin.register User do
-  permit_params :email, :first_name, :last_name, :phone_number, :country_code, :sex, :birthdate, :address, :district, :prefecture, :role, :room_id
+  permit_params :email, :name, :phone_number, :country_code, :sex, :birthdate, :address, :district, :prefecture, :role, :room_id
 
   index do
     selectable_column
     id_column
     column :email
-    column :first_name
-    column :last_name
+    column :name
     column :role
     column :phone_number
     column :country_code
@@ -19,11 +18,10 @@ ActiveAdmin.register User do
     actions
   end
 
-  show title: proc { |user| "#{user.first_name} #{user.last_name}" } do
+  show title: proc { |user| user.name } do
     attributes_table do
     row :email
-    row :first_name
-    row :last_name
+    row :name
     row :role
     row :phone_number
     row :country_code
@@ -38,8 +36,7 @@ ActiveAdmin.register User do
   end
 
   filter :email
-  filter :first_name
-  filter :last_name
+  filter :name
   filter :phone_number
 
   form do |f|
@@ -48,8 +45,7 @@ ActiveAdmin.register User do
       f.input :password
       f.input :password_confirmation
       f.input :role
-      f.input :first_name
-      f.input :last_name
+      f.input :name
       f.input :phone_number
       f.input :country_code
       f.input :sex
