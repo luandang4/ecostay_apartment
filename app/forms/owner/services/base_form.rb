@@ -1,12 +1,12 @@
 class Owner::Services::BaseForm < ApplicationForm
-  validates :name, presence: true
-  validates :service_type, presence: true
-  validates :unit, presence: true
-  validates :price, presence: true
+  validates :name, presence: { message: "Name can't be blank!" }
+  validates :service_type, presence: { message: "Service type can't be blank!" }
+  validates :unit, presence: { message: "Unit can't be blank!" }
+  validates :price, presence: { message: "Price can't be blank!" }
 
   private
 
   def self.attribute_names
-    %i[ name service_type unit price ]
+    %i[ id name service_type unit price ]
   end
 end

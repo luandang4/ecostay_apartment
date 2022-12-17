@@ -9,6 +9,10 @@ class Owner::ServicesController < Owner::BaseController
     @services = operation.services
   end
 
+  def new
+    @service = Owner::Services::NewForm.new()
+  end
+
   def show
     operation = Owner::Services::ShowOperation.new(params, current_user, session: session)
     operation.call
@@ -20,20 +24,23 @@ class Owner::ServicesController < Owner::BaseController
     operation = Owner::Services::CreateOperation.new(params, current_user, session: session)
     operation.call
 
-    @errors = operation.errors if operation.error?
+    @service = operation.form
+    if @service.errors.messages.present?
+      return render :new
+    end
 
     redirect_to owner_services_path
+    flash[:success] = 'Successful created'
   end
 
   def update
     operation = Owner::Services::UpdateOperation.new(params, current_user, session: session)
     operation.call
 
-    @service = operation.service
-    @errors = operation.errors
+    @service = operation.form
 
-    if @errors
-      return render 'owner/services/show'
+    if @service.errors.messages.present?
+      return render :show
     end
 
     redirect_to owner_services_path

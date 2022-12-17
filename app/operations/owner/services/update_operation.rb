@@ -8,7 +8,7 @@ def initialize(params, current_user, options = {})
   def call
     set_instance_variables
     set_service
-    build_form_service
+    validation { return true }
     update_service!
   end
 
@@ -27,10 +27,15 @@ def initialize(params, current_user, options = {})
     @service = Service.find(params[:id])
   end
 
-  def build_form_service
-    attrs   = params.require(:service).permit(Owner::Services::UpdateForm.attribute_names)
-    @form   = Owner::Services::UpdateForm.new(attrs)
-    @errors = form.error_message if @form.invalid?
+  def validation
+    attrs   = params[:service].present? ?
+              params.require(:service).permit(Owner::Services::UpdateForm.attribute_names) :
+              params.require(:owner_services_update_form).permit(Owner::Services::UpdateForm.attribute_names)
+    @form   = Owner::Services::UpdateForm.new(attrs.merge(id: service.id))
+
+    return if form.valid?
+
+    yield
   end
 
   def update_service!
