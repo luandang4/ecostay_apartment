@@ -37,22 +37,22 @@
                           <div class="form-group">
                             <%= f.label :Name, class: "form-control-label" %>
                             <%= f.text_field :name, class: "form-control" %>
-                            <%= f.error :name, class: "text-danger" %>
+                            <%= f.error :name, class: "errors-message text-danger" %>
                           </div>
                           <div class="form-group">
                             <%= f.label 'Service type', class: "form-control-label" %>
                             <%= f.text_field :service_type, class: "form-control" %>
-                            <%= f.error :service_type, class: "text-danger" %>
+                            <%= f.error :service_type, class: "errors-message text-danger" %>
                           </div>
                           <div class="form-group">
                             <%= f.label :Price, class: "form-control-label" %>
                             <%= f.text_field :price, class: "form-control", type: "number" %>
-                            <%= f.error :price, class: "text-danger" %>
+                            <%= f.error :price, class: "errors-message text-danger" %>
                           </div>
                           <div class="form-group">
                             <%= f.label :Unit, class: "form-control-label" %>
                             <%= f.text_field :unit, class: "form-control" %>
-                            <%= f.error :unit, class: "text-danger" %>
+                            <%= f.error :unit, class: "errors-message text-danger" %>
                           </div>
                           <%= f.submit :Create, class: "btn btn-primary" %>
                         </div>
