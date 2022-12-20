@@ -7,7 +7,7 @@ def initialize(params, current_user, options = {})
 
   def call
     set_instance_variables
-    # set_devices
+    set_devices
   end
 
   private
