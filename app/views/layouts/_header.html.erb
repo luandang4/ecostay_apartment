@@ -1,5 +1,5 @@
 <header class="header-rounded-images">
-  <nav class="navbar-header-css navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+  <nav class="navbar-header-css navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute py-2 start-0 end-0 mx-4">
     <div class="container-fluid px-0">
       <%= link_to 'EcoStay', root_path, class: "navbar-brand font-weight-bolder ms-sm-3" %>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,30 +46,38 @@
     <img class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0" src="https://images.unsplash.com/photo-1538681105587-85640961bf8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="image" loading="lazy">
     <div class="container">
       <div class="row">
-        <div class="col-lg-7 d-flex">
-          <div class="card card-body blur text-md-start text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-            <h2 class="text-dark mb-4">Choose the best</h2>
-            <p class="lead text-dark pe-md-5 me-md-5">
-              The apartments are the best choice, voted by investors and users.
-            </p>
-            <div class="buttons">
-              <button type="button" class="btn-on-header btn bg-gradient-primary mt-4">Contact Us</button>
-              <button type="button" class="btn-on-header btn btn-outline-info mt-4 ms-2">Show More</button>
-            </div>
-            <div class="row mt-2">
-              <div class="col-md-3 col-6 p-0">
-                <%= image_tag("logos/gray-logos/logo-pinterest", alt: "logo", class: "w-100") %>
-              </div>
-              <div class="col-md-3 col-6 p-0">
-                <%= image_tag("logos/gray-logos/logo-netflix", alt: "logo", class: "w-100") %>
-              </div>
-              <div class="col-md-3 col-6 p-0">
-                <%= image_tag("logos/gray-logos/logo-coinbase", alt: "logo", class: "w-100") %>
-              </div>
-              <div class="col-md-3 col-6 p-0">
-                <%= image_tag("logos/gray-logos/logo-nasa", alt: "logo", class: "w-100") %>
-              </div>
-            </div>
+        <div class="col-lg-6 d-flex">
+          <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
+            <%= link_to renter_home_index_path do %>
+              <section class="py-sm-7 py-5 position-relative">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 mx-auto">
+                      <div class="mt-n8 mt-md-n9 text-center">
+                        <%= image_tag('bruce-mars', alt: "logo", class: "avatar avatar-xxl shadow-xl position-relative z-index-2", alt: "bruce", loading: "lazy") %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex">
+          <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
+            <%= link_to owner_dashboards_path do %>
+              <section class="py-sm-7 py-5 position-relative">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 mx-auto">
+                      <div class="mt-n8 mt-md-n9 text-center">
+                        <%= image_tag('ivana-square', alt: "logo", class: "avatar avatar-xxl shadow-xl position-relative z-index-2", alt: "bruce", loading: "lazy") %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            <% end %>
           </div>
         </div>
       </div>
