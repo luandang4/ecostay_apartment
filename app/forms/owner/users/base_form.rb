@@ -3,7 +3,6 @@ class Owner::Users::BaseForm < ApplicationForm
   validates :name, presence: { message: "Name can't be blank!" }
   validates :phone_number, presence: { message: "Phone number can't be blank!" }
   validates :room_id, presence: { message: "Room id can't be blank!" }
-  validates :room_id, presence: { message: "Room id can't be blank!" }
 
   private
 

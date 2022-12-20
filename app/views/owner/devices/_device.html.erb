@@ -1,0 +1,18 @@
+<tr>
+  <th scope="row">
+    <div class="media align-items-center">
+      <div class="media-body">
+        <span class="name mb-0 text-sm"><%= link_to device.name, owner_device_path(device) %></span>
+      </div>
+    </div>
+  </th>
+  <td class="budget text-capitalize"><%= device.time_active %></td>
+  <td>
+    <span class="badge badge-dot mr-4">
+      <span class="status text-uppercase"><%= device.status %></span>
+    </span>
+  </td>
+  <td>
+    <%= link_to device.room_id, '#', class: "badge badge-dot mr-4 status" %>
+  </td>
+</tr>

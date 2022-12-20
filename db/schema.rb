@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_18_141007) do
+ActiveRecord::Schema.define(version: 2022_12_20_140251) do
 
   create_table "accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "phone_number"
     t.string "country_code"
     t.integer "sex", default: 1
@@ -99,6 +98,16 @@ ActiveRecord::Schema.define(version: 2022_12_18_141007) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_user_id"], name: "index_apartments_on_admin_user_id"
     t.index ["user_id"], name: "index_apartments_on_user_id"
+  end
+
+  create_table "devices", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "time_active"
+    t.integer "status"
+    t.bigint "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_devices_on_room_id"
   end
 
   create_table "monthly_expenses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
