@@ -4,4 +4,5 @@ class Apartment < ApplicationRecord
   has_many :services
   has_many :rooms
   has_many :users, through: :rooms
+  has_many :devices, through: :rooms
 end

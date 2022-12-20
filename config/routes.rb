@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :users,      only: %i(index show new create update)
     resources :services,   only: %i(index show new create update destroy)
     resources :rooms,      only: %i(new create update)
+    resources :devices,     only: %i(index show new create update destroy)
   end
 
   namespace :renter do

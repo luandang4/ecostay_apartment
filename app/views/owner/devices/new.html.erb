@@ -1,0 +1,63 @@
+<!-- Header -->
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Devices</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Header -->
+<div class="container-fluid mt--6">
+  <div class="card mb-4">
+    <div class="card-header">
+      <h3 class="mb-0">New Devices</h3>
+    </div>
+    <!-- Card body -->
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="form-group">
+                    <%= simple_form_for @device, url: owner_devices_path do |f| %>
+                      <div class="row">
+                        <div class="col-md">
+                          <div class="form-group">
+                            <%= f.label :Name, class: "form-control-label" %>
+                            <%= f.text_field :name, class: "form-control" %>
+                            <%= f.error :name, class: "errors-message text-danger" %>
+                          </div>
+                          <div class="form-group">
+                            <%= f.label :Room, class: "form-control-label" %>
+                            <%= f.text_field :room_id, class: "form-control" %>
+                            <%= f.error :room_id, class: "errors-message text-danger", type: "number" %>
+                          </div>
+                          <%= f.submit :Create, class: "btn btn-primary" %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="bg-custom-col-md"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

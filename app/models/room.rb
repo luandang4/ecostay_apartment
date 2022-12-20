@@ -4,4 +4,5 @@ class Room < ApplicationRecord
 
   belongs_to :apartment
   has_many :users
+  has_many :devices
 end
