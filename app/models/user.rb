@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_one :apartment
   belongs_to :room, optional: true
 
-  enumerize :role, in: { renter: 0, owner: 1 }
+  enumerize :role, in: { no_role: 0, renter: 1, owner: 2 }
 
   def avatar_thumbnail
     avatar.variant(resize: "36x36!").processed if avatar.attached?
