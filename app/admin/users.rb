@@ -8,7 +8,6 @@ ActiveAdmin.register User do
     column :name
     column :role
     column :phone_number
-    column :country_code
     column :sex
     column :birthdate
     column :address
@@ -24,7 +23,6 @@ ActiveAdmin.register User do
     row :name
     row :role
     row :phone_number
-    row :country_code
     row :sex
     row :birthdate
     row :address
@@ -47,7 +45,6 @@ ActiveAdmin.register User do
       f.input :role
       f.input :name
       f.input :phone_number
-      f.input :country_code
       f.input :sex
       f.input :birthdate, as: :date_time_picker, datepicker_options: { min_date: "1920-1-1", max_date: "+80Y" }
       f.input :address

@@ -20,7 +20,6 @@
                   <% else %>
                     <%= link_to image_tag("user_avatar", alt: "Image placeholder"), new_user_session_path ,class: "avatar avatar-sm rounded-circle" %>
                   <% end %>
-
                   <div class="btn-group">
                     <label class="dropdown-toggle dropdown-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></label>
                     <ul class="dropdown-menu px-2 py-3 custom-dropdown" aria-labelledby="dropdownMenuButton">
@@ -48,13 +47,16 @@
       <div class="row">
         <div class="col-lg-6 d-flex">
           <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
-            <%= link_to renter_home_index_path do %>
+            <%= link_to renter_home_index_path, class: "text-decoration-none" do %>
               <section class="py-sm-7 py-5 position-relative">
                 <div class="container">
                   <div class="row">
                     <div class="col-12 mx-auto">
                       <div class="mt-n8 mt-md-n9 text-center">
                         <%= image_tag('bruce-mars', alt: "logo", class: "avatar avatar-xxl shadow-xl position-relative z-index-2", alt: "bruce", loading: "lazy") %>
+                      </div>
+                      <div class="mt-4 text-center">
+                        <h2 class="title">If you are a tenant</h2>
                       </div>
                     </div>
                   </div>
@@ -65,13 +67,16 @@
         </div>
         <div class="col-lg-6 d-flex">
           <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
-            <%= link_to owner_dashboards_path do %>
+            <%= link_to owner_dashboards_path, class: "text-decoration-none" do %>
               <section class="py-sm-7 py-5 position-relative">
                 <div class="container">
                   <div class="row">
                     <div class="col-12 mx-auto">
                       <div class="mt-n8 mt-md-n9 text-center">
                         <%= image_tag('ivana-square', alt: "logo", class: "avatar avatar-xxl shadow-xl position-relative z-index-2", alt: "bruce", loading: "lazy") %>
+                      </div>
+                      <div class="mt-4 text-center">
+                        <h2 class="title">If you are a landlord</h2>
                       </div>
                     </div>
                   </div>

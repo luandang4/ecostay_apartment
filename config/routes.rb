@@ -11,11 +11,13 @@ Rails.application.routes.draw do
     resources :users,      only: %i(index show new create update)
     resources :services,   only: %i(index show new create update destroy)
     resources :rooms,      only: %i(new create update)
-    resources :devices,     only: %i(index show new create update destroy)
+    resources :devices,    only: %i(index show new create update destroy)
+    resources :orders,     only: %i(index new create show)
   end
 
   namespace :renter do
-    resources :home, only: %i(index)
+    resources :home,   only: %i(index)
+    resources :orders, only: %i(index show)
   end
   # scope "(:locale)", locale: /en|vi/ do
   # end
