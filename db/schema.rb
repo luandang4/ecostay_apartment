@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_20_140251) do
+ActiveRecord::Schema.define(version: 2022_12_23_064817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,13 @@ ActiveRecord::Schema.define(version: 2022_12_20_140251) do
     t.index ["room_id"], name: "index_devices_on_room_id"
   end
 
+  create_table "group_users", force: :cascade do |t|
+    t.bigint "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_group_users_on_room_id"
+  end
+
   create_table "monthly_expenses", force: :cascade do |t|
     t.string "name"
     t.datetime "report_date"
@@ -126,6 +133,21 @@ ActiveRecord::Schema.define(version: 2022_12_20_140251) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_monthly_expenses_on_room_id"
     t.index ["user_id"], name: "index_monthly_expenses_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "status"
+    t.float "amout_service"
+    t.float "sum"
+    t.datetime "pay_date"
+    t.bigint "service_id"
+    t.bigint "room_id"
+    t.bigint "group_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_user_id"], name: "index_orders_on_group_user_id"
+    t.index ["room_id"], name: "index_orders_on_room_id"
+    t.index ["service_id"], name: "index_orders_on_service_id"
   end
 
   create_table "room_tenantes", force: :cascade do |t|
@@ -200,11 +222,14 @@ ActiveRecord::Schema.define(version: 2022_12_20_140251) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.bigint "group_user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["group_user_id"], name: "index_users_on_group_user_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["room_id"], name: "index_users_on_room_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "users", "group_users"
 end
