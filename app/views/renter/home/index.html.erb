@@ -8,74 +8,57 @@
         </div>
       </div>
       <div class="col-lg-9">
-        <div class="row">
-          <div class="col-md-4 mt-md-0">
-            <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 my-auto" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/sections/headers.jpg" alt="hero">
-              </div>
-              <div class="mt-2 ms-2">
-                <h6 class="mb-0">Page Headers</h6>
-                <p class="text-secondary text-sm">10 Examples</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 mt-md-0">
-            <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 my-auto" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/sections/headers.jpg" alt="hero">
-              </div>
-              <div class="mt-2 ms-2">
-                <h6 class="mb-0">Page Headers</h6>
-                <p class="text-secondary text-sm">10 Examples</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 mt-md-0">
-            <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 my-auto" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/sections/headers.jpg" alt="hero">
-              </div>
-              <div class="mt-2 ms-2">
-                <h6 class="mb-0">Page Headers</h6>
-                <p class="text-secondary text-sm">10 Examples</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 mt-md-0">
-            <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 my-auto" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/sections/headers.jpg" alt="hero">
-              </div>
-              <div class="mt-2 ms-2">
-                <h6 class="mb-0">Page Headers</h6>
-                <p class="text-secondary text-sm">10 Examples</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 mt-md-0 mt-4">
-            <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 my-auto" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/sections/features.jpg" alt="features">
-              </div>
-              <div class="mt-2 ms-2">
-                <h6 class="mb-0">Features</h6>
-                <p class="text-secondary text-sm">14 Examples</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 mt-md-0 mt-4">
-            <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 my-auto opacity-6" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/sections/pricing.jpg" data-bs-toggle="tooltip" data-bs-placement="top" title="Pro Element" alt="pricing">
-              </div>
-              <div class="mt-2 ms-2">
-                <h6 class="mb-0">Pricing</h6>
-                <p class="text-secondary text-sm">8 Examples</p>
-              </div>
-            </a>
+        <div class="col-md-12 mt-4">
+          <div class="card move-on-hover bg-color1">
+            <table class="mt-4">
+              <tr>
+                <td>TV</td>
+                <td>30 minutes</td>
+                <td>
+                  <div class="form-check form-switch d-flex align-items-center">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                  </div>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
+
+        <div class="col-md-12 mt-4">
+          <div class="card move-on-hover bg-color1">
+            <table class="mt-4">
+              <tr>
+                <td>TV</td>
+                <td>30 minutes</td>
+                <td>
+                  <div class="form-check form-switch d-flex align-items-center">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-md-12 mt-4">
+          <div class="card move-on-hover bg-color1">
+            <table class="mt-4">
+              <tr>
+                <td>TV</td>
+                <td>30 minutes</td>
+                <td>
+                  <div class="form-check form-switch d-flex align-items-center">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <% if @devices.present? %>
+          <%= render partial: "renter/home/device", collection: @devices, as: :device %>
+        <% end %>
       </div>
     </div>
     <div class="row pt-lg-6">
@@ -89,34 +72,34 @@
         <div class="row mt-3">
           <div class="col-md-4">
             <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 m-auto" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/sections/navbars.jpg" alt="navbars">
+              <div class="card shadow-lg move-on-hover min-height-160">
+                <%= image_tag 'invocie1', class: "w-100 m-auto" %>
               </div>
               <div class="mt-2 ms-2">
-                <h6 class="mb-0">Navbars</h6>
-                <p class="text-secondary text-sm">4 Examples</p>
+                <h6 class="mb-0">September</h6>
+                <p class="text-secondary text-sm">Paid</p>
               </div>
             </a>
           </div>
           <div class="col-md-4 mt-md-0 mt-4">
             <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 m-auto" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/sections/nav-tabs.jpg" alt="navtabs">
+              <div class="card shadow-lg move-on-hover min-height-160">
+                <%= image_tag 'invocie1', class: "w-100 m-auto" %>
               </div>
               <div class="mt-2 ms-2">
-                <h6 class="mb-0">Nav Tabs</h6>
-                <p class="text-secondary text-sm">2 Nav Tabs</p>
+                <h6 class="mb-0">October</h6>
+                <p class="text-secondary text-sm">Paid</p>
               </div>
             </a>
           </div>
           <div class="col-md-4 mt-md-0 mt-4">
             <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 m-auto" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-design-system/presentation/sections/pagination.jpg" alt="pagination">
+              <div class="card shadow-lg move-on-hover min-height-160">
+                <%= image_tag 'invocie1', class: "w-100 m-auto" %>
               </div>
               <div class="mt-2 ms-2">
-                <h6 class="mb-0">Pagination</h6>
-                <p class="text-secondary text-sm">3 Examples</p>
+                <h6 class="mb-0">November</h6>
+                <p class="text-secondary text-sm">Unpaid</p>
               </div>
             </a>
           </div>
