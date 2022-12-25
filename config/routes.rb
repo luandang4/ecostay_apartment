@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :apartments, only: %i(index)
     resources :users,      only: %i(index show new create update)
     resources :services,   only: %i(index show new create update destroy)
-    resources :rooms,      only: %i(new create update)
+    resources :rooms,      only: %i(new create update show)
     resources :devices,    only: %i(index show new create update destroy)
     resources :orders,     only: %i(index new create show)
   end
