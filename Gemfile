@@ -24,6 +24,7 @@ gem 'image_processing', '~> 1.2'
 gem 'simple_form'
 gem 'psych', '< 4'
 gem 'net-smtp', require: false
+gem 'sidekiq', '~> 4.1', '>= 4.1.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

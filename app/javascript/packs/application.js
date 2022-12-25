@@ -21,6 +21,7 @@ import "@fortawesome/fontawesome-free/css/all"
 // Import the specific modules you may need (Modal, Alert, etc)
 import { Tooltip, Popover } from "bootstrap"
 import "./sign_up"
+import "./renter"
 
 // The stylesheet location we created earlier
 require("../stylesheets/application.scss")

@@ -20,7 +20,7 @@
 <div class="container-fluid mt--6">
   <div class="card mb-4">
     <div class="card-header">
-      <h3 class="mb-0">New Devices</h3>
+      <h3 class="mb-0">New Receipt</h3>
     </div>
     <!-- Card body -->
     <div class="card-body">
@@ -38,6 +38,21 @@
                             <%= f.label :Status, class: "form-control-label" %>
                             <%= f.text_field :status, class: "form-control" %>
                             <%= f.error :status, class: "errors-message text-danger" %>
+                          </div>
+                          <div class="form-group">
+                            <%= f.label :Price, class: "form-control-label" %>
+                            <%= f.text_field :price, class: "form-control" %>
+                            <%= f.error :price, class: "errors-message text-danger" %>
+                          </div>
+                          <div class="form-group">
+                            <%= f.label "Service price", class: "form-control-label" %>
+                            <%= f.text_field :amout_service, class: "form-control" %>
+                            <%= f.error :amout_service, class: "errors-message text-danger" %>
+                          </div>
+                          <div class="form-group">
+                            <%= f.label :Room, class: "form-control-label" %>
+                            <%= f.text_field :room_id, class: "form-control" %>
+                            <%= f.error :room_id, class: "errors-message text-danger" %>
                           </div>
                           <%= f.submit :Create, class: "btn btn-primary" %>
                         </div>

@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 2022_12_23_064817) do
   create_table "orders", force: :cascade do |t|
     t.integer "status"
     t.float "amout_service"
+    t.float "price"
     t.float "sum"
     t.datetime "pay_date"
     t.bigint "service_id"

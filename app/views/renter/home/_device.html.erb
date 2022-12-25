@@ -1,0 +1,25 @@
+<div class="col-md-12 mt-4" id="device-partial-<%=device.id%>">
+  <div class="card move-on-hover bg-color1">
+    <table class="mt-4">
+      <tr>
+        <td class="col-md-3"><%= device.name %></td>
+        <td class="col-md-3 time-active" id="active-time-<%=device.id%>">
+          <% if device.status.on? %>
+            <%= render partial: "renter/home/time", locals: { device: device } %>
+          <% else %>
+            Inactice
+          <% end %>
+        </td>
+        <td class="col-md-3">
+          <div class="form-check form-switch d-flex align-items-center">
+          <% if device.status.on? %>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault<%=device.id%>" value="<%=device.status%>" checked>
+          <% else %>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault<%=device.id%>" value="<%=device.status%>">
+          <% end %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
