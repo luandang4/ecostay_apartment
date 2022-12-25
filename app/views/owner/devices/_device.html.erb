@@ -6,7 +6,13 @@
       </div>
     </div>
   </th>
-  <td class="budget text-capitalize"><%= device.time_active %></td>
+  <td class="budget text-capitalize">
+    <% if device.status.on? %>
+      <%= time_ago_in_words(device.time_active) %>
+    <% else %>
+      Inactice
+    <% end %>
+  </td>
   <td>
     <span class="badge badge-dot mr-4">
       <span class="status text-uppercase"><%= device.status %></span>

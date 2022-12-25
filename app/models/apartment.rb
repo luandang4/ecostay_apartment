@@ -5,4 +5,5 @@ class Apartment < ApplicationRecord
   has_many :rooms
   has_many :users, through: :rooms
   has_many :devices, through: :rooms
+  has_many :orders, through: :rooms
 end

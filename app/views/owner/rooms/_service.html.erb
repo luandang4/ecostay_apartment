@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-9">
+          <input class="form-control" value="<%= service.name %>" type="text" disabled="disabled">
+      </div>
+      <div class="col-md-2">
+      <% if @room.service_rooms.pluck(:service_id).exclude?(service.id) %>
+        <button class="btn btn-primary with-100" type="button" id="add-service-<%=service.id%>" data-room-id="<%= @room.id %>">Add</button>
+      <% else %>
+        <button class="btn btn-danger with-100" type="button" id="remove-service-<%=service.id%>" data-room-id="<%= @room.id %>">Remove</button>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

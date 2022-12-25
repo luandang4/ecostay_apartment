@@ -5,7 +5,7 @@ class Renter::HomeController < Renter::BaseController
     operation = Renter::Home::IndexOperation.new(params, current_user, session: session)
     operation.call
 
-    @devices = operation.devices
+    @devices = operation.devices.order_by_created
     @orders  = operation.orders
   end
 
@@ -18,13 +18,6 @@ class Renter::HomeController < Renter::BaseController
       device.update(status: 1, time_active: Time.now)
     end
 
-    @devices = current_user.room.devices
-
-    # respond_to do |format|
-    #   format.html
-    #   format.json do
-    #     render json: { devices: @devices }
-    #   end
-    # end
+    @devices = current_user.room.devices.order_by_created
   end
 end
