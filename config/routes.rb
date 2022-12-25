@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   namespace :renter do
     resources :home,   only: %i(index)
+    put 'home/:id', to: 'home#update_device'
     resources :orders, only: %i(index show)
+    resources :devices, only: %i(update)
   end
   # scope "(:locale)", locale: /en|vi/ do
   # end

@@ -3,6 +3,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
     create_table :orders do |t|
       t.integer    :status
       t.float      :amout_service
+      t.float      :price
       t.float      :sum
       t.datetime   :pay_date
       t.references :service

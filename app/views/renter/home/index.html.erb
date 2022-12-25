@@ -7,55 +7,7 @@
           <h6 class="text-secondary font-weight-normal pe-3">All devices and their status are displayed here</h6>
         </div>
       </div>
-      <div class="col-lg-9">
-        <div class="col-md-12 mt-4">
-          <div class="card move-on-hover bg-color1">
-            <table class="mt-4">
-              <tr>
-                <td>TV</td>
-                <td>30 minutes</td>
-                <td>
-                  <div class="form-check form-switch d-flex align-items-center">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="col-md-12 mt-4">
-          <div class="card move-on-hover bg-color1">
-            <table class="mt-4">
-              <tr>
-                <td>TV</td>
-                <td>30 minutes</td>
-                <td>
-                  <div class="form-check form-switch d-flex align-items-center">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="col-md-12 mt-4">
-          <div class="card move-on-hover bg-color1">
-            <table class="mt-4">
-              <tr>
-                <td>TV</td>
-                <td>30 minutes</td>
-                <td>
-                  <div class="form-check form-switch d-flex align-items-center">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
+      <div class="col-lg-9 devices-container">
         <% if @devices.present? %>
           <%= render partial: "renter/home/device", collection: @devices, as: :device %>
         <% end %>
