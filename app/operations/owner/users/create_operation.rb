@@ -29,11 +29,17 @@ def initialize(params, current_user, options = {})
   end
 
   def validation
-    attrs   = params[:owner_users_new_form].present? ?
-              params.require(:owner_users_new_form).permit(Owner::Users::CreateForm.attribute_names) :
-              params.require(:owner_users_create_form).permit(Owner::Users::CreateForm.attribute_names)
+    if params[:owner_users_new_form].present?
+      room = Room.find(params[:owner_users_new_form][:room_id])
+      group_user = room.group_user.present? ? room.group_user : GroupUser.create(room_id: room.id)
+      attrs = params.require(:owner_users_new_form).permit(Owner::Users::CreateForm.attribute_names)
+    else
+      room = Room.find(params[:owner_users_create_form][:room_id])
+      group_user = room.group_user.present? ? room.group_user : GroupUser.create(room_id: room.id)
+      attrs = params.require(:owner_users_create_form).permit(Owner::Users::CreateForm.attribute_names)
+    end
 
-    @form   = Owner::Users::CreateForm.new(attrs.merge(role: 1))
+    @form   = Owner::Users::CreateForm.new(attrs.merge(role: 1, group_user_id: group_user.id))
     return if form.valid?
 
     yield

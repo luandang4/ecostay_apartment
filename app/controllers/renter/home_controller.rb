@@ -6,6 +6,7 @@ class Renter::HomeController < Renter::BaseController
     operation.call
 
     @devices = operation.devices
+    @orders  = operation.orders
   end
 
   def update_device

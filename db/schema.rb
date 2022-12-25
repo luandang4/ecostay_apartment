@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2022_12_23_064817) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 0
     t.float "amout_service"
     t.float "price"
     t.float "sum"

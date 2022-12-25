@@ -22,39 +22,9 @@
       </div>
       <div class="col-lg-9">
         <div class="row mt-3">
-          <div class="col-md-4">
-            <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160">
-                <%= image_tag 'invocie1', class: "w-100 m-auto" %>
-              </div>
-              <div class="mt-2 ms-2">
-                <h6 class="mb-0">September</h6>
-                <p class="text-secondary text-sm">Paid</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 mt-md-0 mt-4">
-            <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160">
-                <%= image_tag 'invocie1', class: "w-100 m-auto" %>
-              </div>
-              <div class="mt-2 ms-2">
-                <h6 class="mb-0">October</h6>
-                <p class="text-secondary text-sm">Paid</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 mt-md-0 mt-4">
-            <a href="">
-              <div class="card shadow-lg move-on-hover min-height-160">
-                <%= image_tag 'invocie1', class: "w-100 m-auto" %>
-              </div>
-              <div class="mt-2 ms-2">
-                <h6 class="mb-0">November</h6>
-                <p class="text-secondary text-sm">Unpaid</p>
-              </div>
-            </a>
-          </div>
+          <% if @orders.present? %>
+            <%= render partial: "renter/home/order", collection: @orders %>
+          <% end %>
         </div>
       </div>
     </div>

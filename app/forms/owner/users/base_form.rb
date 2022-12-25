@@ -22,6 +22,7 @@ class Owner::Users::BaseForm < ApplicationForm
         room_id
         avatar
         created_at
+        group_user_id
       ]
   end
 end
