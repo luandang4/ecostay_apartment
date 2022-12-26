@@ -1,0 +1,3 @@
+create_receipt_every_month:
+  cron: '* * * * *'
+  class: CreateReceiptWorker

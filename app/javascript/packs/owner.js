@@ -36,21 +36,21 @@ $(document).ready(function(){
       method: 'PUT',
       data: {
         service_id: service_id,
-        action: 'add'
+        btn: 'add'
       }
     });
   });
 
   $(document).on("click", '[id^="remove-service-"]', function(){
-    service_id = $(this).attr('id').slice(12,20);
+    service_id = $(this).attr('id').slice(15,20);
     id         = $(this).attr('data-room-id')
-    // $.ajax({
-    //   url: '/owner/rooms/' + id,
-    //   method: 'PUT',
-    //   data: {
-    //     service_id: service_id,
-    //     action: 'remove'
-    //   }
-    // });
+    $.ajax({
+      url: '/owner/rooms/' + id,
+      method: 'PUT',
+      data: {
+        service_id: service_id,
+        btn: 'remove'
+      }
+    });
   });
 });

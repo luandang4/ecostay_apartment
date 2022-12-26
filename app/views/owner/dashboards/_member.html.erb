@@ -1,0 +1,19 @@
+<li class="list-group-item px-0">
+  <div class="row align-items-center">
+    <div class="col-auto">
+      <!-- Avatar -->
+      <a href="#" class="avatar rounded-circle">
+        <%= image_tag member.avatar, alt: "Image placeholder" %>
+      </a>
+    </div>
+    <div class="col ml--2">
+      <h4 class="mb-0">
+        <a href="#!"><%= member.name %></a>
+      </h4>
+      <span class="text-success">●</span>
+      <small><%= member.room.name %></small>
+    </div>
+    <div class="col-auto">
+    </div>
+  </div>
+</li>

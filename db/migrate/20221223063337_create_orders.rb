@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.float      :price
       t.float      :sum
       t.datetime   :pay_date
-      t.references :service
+      t.references :service_room
       t.references :room
       t.references :group_user
 

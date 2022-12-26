@@ -11,6 +11,7 @@ def initialize(params, current_user, options = {})
     set_service
     set_services
     set_service_room
+    set_btn
   end
 
   private
@@ -20,6 +21,7 @@ def initialize(params, current_user, options = {})
       service
       services
       room
+      btn
     ].each do |v|
       singleton_class.class_eval { attr_reader v }
     end
@@ -34,10 +36,18 @@ def initialize(params, current_user, options = {})
   end
 
   def set_service_room
-    room.service_rooms.create(service_id: service.id)
+    if params[:btn] == "add"
+      room.service_rooms.create(service_id: service.id)
+    else
+      room.service_rooms.find_by(service_id: service.id).delete
+    end
   end
 
   def set_services
     @services = room.apartment.services
+  end
+
+  def set_btn
+    @btn = params[:btn]
   end
 end
