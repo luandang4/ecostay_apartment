@@ -11,7 +11,9 @@
 // Rails.start()
 // Turbolinks.start()
 // ActiveStorage.start()
+import $ from 'jquery';
 
+global.$ = jQuery;
 
 require("@popperjs/core")
 

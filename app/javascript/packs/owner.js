@@ -7,7 +7,6 @@ $(document).ready(function(){
   });
 
   $(document).on('change', '.switch-language', function(){
-    debugger
     if($(this).prop('checked')) {
       path = window.location.pathname.slice(3)
       path = '/en' + path
@@ -28,4 +27,30 @@ $(document).ready(function(){
   setTimeout(function() {
     $('.errors-message').hide()
   }, 3000);
+  
+  $(document).on("click", '[id^="add-service-"]', function(){
+    service_id = $(this).attr('id').slice(12,20);
+    id         = $(this).attr('data-room-id')
+    $.ajax({
+      url: '/owner/rooms/' + id,
+      method: 'PUT',
+      data: {
+        service_id: service_id,
+        action: 'add'
+      }
+    });
+  });
+
+  $(document).on("click", '[id^="remove-service-"]', function(){
+    service_id = $(this).attr('id').slice(12,20);
+    id         = $(this).attr('data-room-id')
+    // $.ajax({
+    //   url: '/owner/rooms/' + id,
+    //   method: 'PUT',
+    //   data: {
+    //     service_id: service_id,
+    //     action: 'remove'
+    //   }
+    // });
+  });
 });

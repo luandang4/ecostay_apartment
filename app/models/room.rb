@@ -6,5 +6,6 @@ class Room < ApplicationRecord
   has_many :users
   has_many :devices
   has_many :orders
+  has_many :service_rooms
   has_one :group_user
 end

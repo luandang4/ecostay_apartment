@@ -37,15 +37,14 @@
                   <tr>
                     <th scope="col">Room</th>
                     <th scope="col">Month</th>
-                    <th scope="col">Amount service</th>
                     <th scope="col">Sum</th>
                     <th scope="col">Status</th>
                     <th scope="col">Paydate</th>
                   </tr>
                 </thead>
                 <tbody class="list">
-                  <% if @devices.present? %>
-                    <%= render partial: "owner/devices/device", collection: @devices, as: :device %>
+                  <% if @orders.present? %>
+                    <%= render partial: "owner/orders/order", collection: @orders, as: :order %>
                   <% end %>
                 </tbody>
               </table>

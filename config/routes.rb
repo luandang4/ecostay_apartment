@@ -11,14 +11,15 @@ Rails.application.routes.draw do
     resources :users,      only: %i(index show new create update)
     resources :services,   only: %i(index show new create update destroy)
     resources :rooms,      only: %i(new create update show)
+    get 'add-service/:id',       to: 'rooms#add_service'
     resources :devices,    only: %i(index show new create update destroy)
     resources :orders,     only: %i(index new create show)
   end
 
   namespace :renter do
-    resources :home,   only: %i(index)
-    put 'home/:id', to: 'home#update_device'
-    resources :orders, only: %i(index show)
+    resources :home,    only: %i(index)
+    put 'home/:id',     to: 'home#update_device'
+    resources :orders,  only: %i(index show)
     resources :devices, only: %i(update)
   end
   # scope "(:locale)", locale: /en|vi/ do
