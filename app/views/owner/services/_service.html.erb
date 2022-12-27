@@ -9,7 +9,7 @@
   <td class="budget text-capitalize"><%= service.service_type %></td>
   <td>
     <span class="badge badge-dot mr-4">
-      <span class="status"><%= service.price %></span>
+      <span class="status"><%= format_number_to_currency service.price %> đ</span>
     </span>
   </td>
   <td>

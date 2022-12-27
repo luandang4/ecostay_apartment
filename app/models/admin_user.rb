@@ -7,4 +7,6 @@ class AdminUser < ApplicationRecord
 
   has_many :apartments
   has_many :services, through: :apartments
+
+  validates :email, format: { with: VALID_EMAIL_REGEX }
 end

@@ -10,6 +10,9 @@ class User < ApplicationRecord
 
   enumerize :role, in: { no_role: 0, renter: 1, owner: 2 }
 
+  validates :email, format: { with: VALID_EMAIL_REGEX }
+  validates :phone_number, format: { with: VALID_PHONE_REGEX }
+
   def avatar_thumbnail
     avatar.variant(resize: "36x36!").processed if avatar.attached?
   end
