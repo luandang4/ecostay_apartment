@@ -1,3 +1,9 @@
-$("#add-service-<%= @ser.id %>").removeClass("btn-primary").addClass("btn-danger");
-$("#add-service-<%= @ser.id %>").text("Remove");
-$("#add-service-<%= @ser.id %>").attr("id", "remove-service-<%= @ser.id %>");
+<% if @btn == 'add' %>
+  $("#add-service-<%= @ser.id %>").removeClass("btn-primary").addClass("btn-danger");
+  $("#add-service-<%= @ser.id %>").text("Remove");
+  $("#add-service-<%= @ser.id %>").attr("id", "remove-service-<%= @ser.id %>");
+<% else %>
+  $("#remove-service-<%= @ser.id %>").removeClass("btn-danger").addClass("btn-primary");
+  $("#remove-service-<%= @ser.id %>").text("Add");
+  $("#remove-service-<%= @ser.id %>").attr("id", "add-service-<%= @ser.id %>");
+<% end %>

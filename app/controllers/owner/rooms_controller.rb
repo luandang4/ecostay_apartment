@@ -24,5 +24,6 @@ class Owner::RoomsController < Owner::BaseController
 
     @services = operation.services
     @ser      = operation.service
+    @btn      = operation.btn
   end
 end

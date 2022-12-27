@@ -141,14 +141,14 @@ ActiveRecord::Schema.define(version: 2022_12_23_064817) do
     t.float "price"
     t.float "sum"
     t.datetime "pay_date"
-    t.bigint "service_id"
+    t.bigint "service_room_id"
     t.bigint "room_id"
     t.bigint "group_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_user_id"], name: "index_orders_on_group_user_id"
     t.index ["room_id"], name: "index_orders_on_room_id"
-    t.index ["service_id"], name: "index_orders_on_service_id"
+    t.index ["service_room_id"], name: "index_orders_on_service_room_id"
   end
 
   create_table "room_tenantes", force: :cascade do |t|
