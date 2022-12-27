@@ -6,6 +6,9 @@ class ApplicationForm
     extend ActiveModel::Translation
     include ActiveModel::Validations::Callbacks
 
+    VALID_PHONE_REGEX = /([+]84|0)([3|5|7|8|9])+([0-9]{8})\b/
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
     def initialize(attributes = {})
       # Define dynamic attributes
       self.class.attribute_names.each do |attr|

@@ -28,6 +28,7 @@ gem 'sidekiq', '~> 4.1', '>= 4.1.2'
 gem 'chartkick'
 gem 'whenever', require: false
 gem 'sidekiq-cron'
+gem 'stripe'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

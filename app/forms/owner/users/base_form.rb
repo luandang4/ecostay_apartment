@@ -1,8 +1,10 @@
 class Owner::Users::BaseForm < ApplicationForm
-  validates :email, presence: { message: "Email can't be blank!" }
-  validates :name, presence: { message: "Name can't be blank!" }
-  validates :phone_number, presence: { message: "Phone number can't be blank!" }
-  validates :room_id, presence: { message: "Room id can't be blank!" }
+  validates :email,        presence:   { message: "Email can't be blank!" }
+  validates :email,        format:     { with: VALID_EMAIL_REGEX, message: "Incorrect email format" }
+  validates :name,         presence:   { message: "Name can't be blank!" }
+  validates :phone_number, presence:   { message: "Phone numbers can't be blank!" }
+  validates :phone_number, format:     { with: VALID_PHONE_REGEX, message: "Incorrectly formatted phone numbers" }
+  validates :room_id,      presence:   { message: "Room id can't be blank!" }
 
   private
 
