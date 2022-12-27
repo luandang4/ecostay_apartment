@@ -20,14 +20,6 @@ apartments.each do |apartment|
   end
 
   Service.seed do |u|
-    u.name         = 'Tiền thuê căn hộ loại 3'
-    u.service_type = 'room'
-    u.price        = 1_500_000
-    u.unit         = 'Phòng'
-    u.apartment_id = apartment.id
-  end
-
-  Service.seed do |u|
     u.name         = 'Chi phí 1 chữ điện'
     u.service_type = 'electric'
     u.price        = 3_000

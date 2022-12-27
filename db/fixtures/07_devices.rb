@@ -1,6 +1,6 @@
 Device.delete_all
 
-rooms = User.first.apartment.rooms
+rooms = Room.all
 rooms.each do |r|
 	r.devices.create(name: "TV", status: 0)
 	r.devices.create(name: "Air-conditioner", status: 0)
