@@ -183,6 +183,7 @@
           <a class="nav-link pr-0 c-dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
+                <%= image_tag url_for(current_user.avatar), alt: "Image placeholder" %>
               </span>
               <div class="media-body ml-2 d-none d-lg-block">
                 <span class="mb-0 text-sm  font-weight-bold"><%= current_user.name %></span>
