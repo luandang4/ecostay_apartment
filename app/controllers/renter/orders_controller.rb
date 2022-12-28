@@ -18,6 +18,17 @@ class Renter::OrdersController < Renter::BaseController
   def new
   end
 
+  def checkout
+    operation = Renter::Orders::ShowOperation.new(params, current_user, session: session)
+    operation.call
+
+    @room          = operation.room
+    @services      = operation.services
+    @order         = operation.order
+    @amout_service = operation.amout_service
+    @month         = operation.month
+  end
+
   def generates_charge
     token = params[:stripeToken]
     customer = Stripe::Customer.create(

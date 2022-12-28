@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     put 'home/:id',     to: 'home#update_device'
     resources :orders,  only: %i(index show)
     resources :devices, only: %i(update)
+    get 'checkout/:id', to: 'orders#checkout', as: :checkout
   end
   # scope "(:locale)", locale: /en|vi/ do
   # end

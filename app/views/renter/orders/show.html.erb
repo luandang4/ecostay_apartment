@@ -49,7 +49,9 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <button type="submit" class="col-md-6 btn btn-icon bg-gradient-dark">Pay now</button>
+                  <%= link_to renter_checkout_path(@order), class:"text-decoration-none" do %>
+                    <p class="col-md-6 btn btn-icon bg-gradient-dark">Pay now</p>
+                  <% end %>
                 </div>
               </div>
             </div>
