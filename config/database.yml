@@ -16,7 +16,8 @@ test:
   database: ecostay_apartment_test
 
 production:
-  <<: *default
   database: ecostay_apartment_production
-  username: ecostay_apartment
-  password: <%= ENV['ECOSTAY_APARTMENT_DATABASE_PASSWORD'] %>
+  username: root
+  host: dpg-cehtujsgqg4e0ef8jr5g-a.singapore-postgres.render.com
+  port: 5432
+  password: uDqKjsikEyMM9q3LBAAME2V9QfbLOhfI
