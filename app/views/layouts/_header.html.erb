@@ -15,11 +15,7 @@
             <div class="container py-3">
               <div class="row text-center">
                 <div class="col-12">
-                  <% if user_signed_in? && current_user.avatar.attached? %>
-                    <%= link_to image_tag(current_user.avatar_thumbnail, alt: "Image placeholder"), "#" ,class: "avatar avatar-sm rounded-circle" %>
-                  <% else %>
-                    <%= link_to image_tag("user_avatar", alt: "Image placeholder"), new_user_session_path ,class: "avatar avatar-sm rounded-circle" %>
-                  <% end %>
+                  
                   <div class="btn-group">
                     <label class="dropdown-toggle dropdown-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></label>
                     <ul class="dropdown-menu px-2 py-3 custom-dropdown" aria-labelledby="dropdownMenuButton">
