@@ -16,6 +16,9 @@ test:
   database: ecostay_apartment_test
 
 production:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: ecostay_apartment_production
   username: root
   host: dpg-cehtujsgqg4e0ef8jr5g-a.singapore-postgres.render.com
